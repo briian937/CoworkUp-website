@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cowork Up — Coworking in València</title>
+  <meta name="description" content="Two beautifully restored coworking spaces in València — Ruzafa and Puerta del Mar. Day passes, hot desks, dedicated desks, meeting rooms and virtual office plans." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+  /* ============================================================
+     DATA
+     ============================================================ */
+  const IMG = {
+    cwk1: "assets/cwk-1.jpg",
+    cwk2: "assets/cwk-2.jpg",
+    cwk3: "assets/cwk-3.jpg",
+    cwk4: "assets/cwk-4.jpg",
+    heroA: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=80&auto=format&fit=crop",
+    ruzafa1: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1600&q=80&auto=format&fit=crop",
+    ruzafa2: "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=1200&q=80&auto=format&fit=crop",
+    ruzafa3: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=1200&q=80&auto=format&fit=crop",
+    ruzafa4: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&q=80&auto=format&fit=crop",
+    ruzafa5: "https://images.unsplash.com/photo-1542621334-a254cf47733d?w=1200&q=80&auto=format&fit=crop",
+    puerta1: "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=1600&q=80&auto=format&fit=crop",
+    puerta2: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=1200&q=80&auto=format&fit=crop",
+    puerta3: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80&auto=format&fit=crop",
+    puerta4: "https://images.unsplash.com/photo-1604328471151-b52226907017?w=1200&q=80&auto=format&fit=crop",
+    puerta5: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&q=80&auto=format&fit=crop",
+    gal1: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=1200&q=80&auto=format&fit=crop",
+    gal2: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80&auto=format&fit=crop",
+    gal3: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=1200&q=80&auto=format&fit=crop",
+    gal4: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1200&q=80&auto=format&fit=crop",
+    team1: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80&auto=format&fit=crop",
+    team2: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&auto=format&fit=crop",
+    team3: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80&auto=format&fit=crop",
+  };
+
+  const SPACES = {
+    ruzafa: {
+      slug: "ruzafa",
+      name: "Cowork Up Ruzafa",
+      short: "Ruzafa",
+      tagline: "C/ Carlos Cervera 14",
+      address: "C/ Carlos Cervera 14, 46006 València",
+      neighborhood: "Ruzafa — the design district",
+      sqm: "420 m²", seats: "48 seats", rooms: "3 meeting rooms",
+      hours: "Mon–Fri · 24/7 for members",
+      hero: "assets/space-ruzafa.jpg",
+      blurb: "Tucked between cafés, indie galleries and vinyl shops, our Ruzafa house is a low-lit, plant-heavy second home for designers, founders and makers building something out loud.",
+      perks: ["Bike storage", "Sound-treated calls", "Phone booths", "Roof terrace", "Stocked pantry", "Pet-friendly"],
+      gallery: [IMG.ruzafa2, IMG.ruzafa3, IMG.ruzafa4, IMG.ruzafa5, IMG.gal3],
+      storyTitle: 'The creative house, <em>on a quiet street in Ruzafa.</em>',
+      storyP1: "Ruzafa is the design district. Galleries, vinyl shops, vermouth bars, ceramicists. We share a block with our favorite bakery. Members tend to be designers, indie devs, small studios, and freelancers who don't want to work from a kitchen table anymore.",
+      storyP2: "The space is intentionally smaller. Quiet by default. Two phone booths, three meeting rooms, a sunny roof terrace, and a pantry stocked with the kind of snacks you'd actually eat.",
+      directions: "Two minutes from the Russafa metro (line 1). Quiet residential street — look for the yellow door with the small brass plate.",
+      coords: "39.46° N · 0.37° W",
+    },
+    "puerta-del-mar": {
+      slug: "puerta-del-mar",
+      name: "Cowork Up Puerta del Mar",
+      short: "Puerta del Mar",
+      tagline: "C/ Cronista Carreres 10",
+      address: "C/ Cronista Carreres 10, 46003 València",
+      neighborhood: "Puerta del Mar — the historic core",
+      sqm: "580 m²", seats: "72 seats", rooms: "5 meeting rooms",
+      hours: "Mon–Fri · 24/7 for members",
+      hero: "assets/space-puerta.jpg",
+      blurb: "A 19th-century building with five-meter ceilings, marble floors and floor-to-ceiling balconies. Light pours in all day. The kind of place you bring a client when you want them to say yes.",
+      perks: ["Reception desk", "Espresso bar", "Podcast room", "Event hall", "Private call booths", "Members lounge"],
+      gallery: [IMG.puerta2, IMG.puerta3, IMG.puerta4, IMG.puerta5, IMG.gal1],
+      storyTitle: 'A bright, classical floor, <em>two blocks from the old port.</em>',
+      storyP1: "Puerta del Mar is València's classical core — wide avenues, plane trees, the old port a five-minute walk away. The building is from 1898 and has been gently restored: original tile floors, period balcony doors, fast fiber hidden behind plaster moldings.",
+      storyP2: "It's our larger location, with five meeting rooms, an event hall that fits 60, a podcast studio, and a separate espresso bar with a barista on weekday mornings.",
+      directions: "Three minutes from Colón metro (lines 3, 5, 7, 9). Right on the Carrer de la Pau axis. Look for the carved stone façade and the porter's lodge.",
+      coords: "39.47° N · 0.37° W",
+    },
+  };
+
+  const PLANS = [
+    { name: "Day Pass", tag: "Drop in", price: "20", per: "/ day", features: ["Open desk in the lounge", "Fast Wi-Fi + power", "Free coffee & tea"], cta: "Pay Now" },
+    { name: "Weekly Pass", tag: "Try a week", price: "80", per: "/ week", features: ["Open desk, 5 days in a row", "1h meeting room credit", "Phone booths included"], cta: "Pay Now" },
+    { name: "10h Flex", tag: "Part-time", price: "59", per: "/ mo", features: ["10 hours / week, any time", "Hot desk in the lounge", "1h meeting room / month"], cta: "Pay Now" },
+    { name: "20h Flex", tag: "Part-time", price: "99", per: "/ mo", features: ["20 hours / week, any time", "Hot desk in the lounge", "2h meeting room / month"], cta: "Pay Now" },
+    { name: "Hot Desk", tag: "Full-time", price: "169", per: "/ mo", badge: "Popular", featured: true, features: ["Unlimited 24/7 access", "Any open desk, any day", "3h meeting room / month"], cta: "Pay Now" },
+    { name: "Fix Desk", tag: "Your own", price: "239", per: "/ mo", features: ["Dedicated desk, with your name", "Personal storage cabinet", "5h meeting room / month"], cta: "Pay Now" },
+    { name: "Meeting Room", tag: "By the hour", price: "8", per: "/ hour", features: ["From 2 to 10 people", "Whiteboard + screen", "Coffee + water included"], cta: "Pay Now" },
+    { name: "Virtual Office", tag: "Address only", price: "39", per: "/ mo", features: ["Business address in València", "Mail forwarding", "Package handling"], cta: "Pay Now" },
+  ];
+
+  const AMENITIES = [
+    { icon: "wifi", title: "Symmetrical fiber", desc: "1 Gbps up / down. Backup line. We measure it weekly so you don't have to." },
+    { icon: "coffee", title: "Decent coffee", desc: "Single-origin espresso, oat milk, kombucha on tap, and a fridge full of snacks." },
+    { icon: "phone", title: "Phone booths", desc: "Sound-treated booths for calls, demos and the occasional argument with your CTO." },
+    { icon: "meet", title: "Meeting rooms", desc: "From two-person huddles to 12-seat boardrooms. Book in two taps from the app." },
+    { icon: "print", title: "Print & ship", desc: "Color print, scan, courier pickup. We sign for your packages so you don't have to be here." },
+    { icon: "lock", title: "24/7 access", desc: "Keycard entry around the clock for full members. Work when you actually want to." },
+    { icon: "bike", title: "Bike storage", desc: "Indoor racks, secure and covered. There's a shower on Ruzafa if you commute by sweat." },
+    { icon: "events", title: "Weekly events", desc: "Talks, demo nights, breakfast, yoga, and the occasional terrace party. Members-only." },
+  ];
+
+  const FAQS = [
+    { q: "Can I try the space before signing up?", a: "Of course. Book a Day Pass and come work for a day, or drop us a line and we'll give you a tour. No pressure, no pitch — bring your laptop, take a desk, see if it feels right." },
+    { q: "Which location should I pick?", a: "All Hot Desk, Fix Desk and 10h Flex plans work across both Ruzafa and Puerta del Mar. Most members rotate. Ruzafa skews creative and quieter; Puerta del Mar is bigger, brighter, and busier with meetings." },
+    { q: "Do you have private offices?", a: "We do — small private offices for 2–6 people at Puerta del Mar. Drop us an email; we keep a short waitlist and they don't sit on the website." },
+    { q: "What's included in the meeting room hours?", a: "Hours are pooled and roll into the next month if unused (up to 1.5× your monthly credit). Booking is in 30-minute blocks. Extras are €8 / hour for small rooms, €18 / hour for boardrooms." },
+    { q: "Can I get a registered business address?", a: "Yes. Our Virtual Office plan gives you a Valencia address, mail forwarding, package handling and four day-passes per year. Companies registered with us can also receive notarial documents at the front desk." },
+    { q: "Do you have events?", a: "Every week. Demo nights, founder breakfasts, design crits, language exchange, and a Thursday terrace happy hour in summer. Members get first access; some events are open to the public." },
+    { q: "What about parking and bikes?", a: "Both locations have secure indoor bike racks. Parking is street-only — we're in the center of Valencia. Most members get here by bike, scooter, metro or on foot." },
+    { q: "Can I bring my dog?", a: "Yes at Ruzafa, no at Puerta del Mar. Both spaces have a no-bark rule on busy days; we'll politely point you to a booth if needed." },
+  ];
+
+  const TEAM = [
+    { name: "Lucía Navarro", role: "Founder", img: IMG.team1 },
+    { name: "Marc Esteller", role: "Co-founder · Operations", img: IMG.team2 },
+    { name: "Paula Ruiz", role: "Community lead", img: IMG.team3 },
+  ];
+
+  const EXTRAS = [
+    ["Small meeting room", "2–4 people", "€8 / h"],
+    ["Boardroom", "6–10 people", "€18 / h"],
+    ["Event hall (Puerta del Mar)", "Up to 60 ppl · evenings", "€280 / night"],
+    ["Podcast studio", "Treated room + gear", "€22 / h"],
+    ["Domiciliation", "Business address + mail", "€39 / mo"],
+    ["Guest day pass", "Bring a friend", "€15 / day"],
+  ];
+
+  /* ============================================================
+     ICONS (SVG strings)
+     ============================================================ */
+  function icon(name, size) {
+    const s = size || 22;
+    const o = `width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"`;
+    const icons = {
+      wifi: `<svg ${o}><path d="M2 9a16 16 0 0 1 20 0"/><path d="M5 12.5a11 11 0 0 1 14 0"/><path d="M8.5 16a6 6 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg>`,
+      coffee: `<svg ${o}><path d="M4 8h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/><path d="M17 10h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2"/><path d="M7 3v2M11 3v2M15 3v2"/></svg>`,
+      phone: `<svg ${o}><rect x="7" y="3" width="10" height="18" rx="1"/><line x1="11" y1="18" x2="13" y2="18"/></svg>`,
+      meet: `<svg ${o}><rect x="3" y="6" width="13" height="12" rx="1"/><path d="M16 10l5-3v10l-5-3z"/></svg>`,
+      print: `<svg ${o}><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="9" rx="1"/><rect x="7" y="14" width="10" height="6"/></svg>`,
+      lock: `<svg ${o}><rect x="4" y="11" width="16" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>`,
+      bike: `<svg ${o}><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l3-7h5l3 7M14 10l-2-4h-2"/></svg>`,
+      events: `<svg ${o}><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/></svg>`,
+      arrow: `<svg ${o}><path d="M5 12h14M13 6l6 6-6 6"/></svg>`,
+      pin: `<svg ${o}><path d="M12 21s-7-7-7-12a7 7 0 0 1 14 0c0 5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>`,
+    };
+    return icons[name] || "";
+  }
+
+  /* ============================================================
+     HELPERS
+     ============================================================ */
+  function h(tag, attrs, ...children) {
+    let html = `<${tag}`;
+    if (attrs) {
+      for (const [k, v] of Object.entries(attrs)) {
+        if (v === false || v == null) continue;
+        html += ` ${k}="${String(v).replace(/"/g, '&quot;')}"`;
+      }
+    }
+    html += ">";
+    const voidTags = new Set(["img", "input", "br", "hr", "meta", "link"]);
+    if (!voidTags.has(tag)) {
+      for (const c of children) {
+        if (c == null || c === false) continue;
+        if (Array.isArray(c)) html += c.join("");
+        else html += c;
+      }
+      html += `</${tag}>`;
+    }
+    return html;
+  }
+
+  function eyebrow(text) {
+    return `<span class="eyebrow"><span class="dot"></span>${text}</span>`;
+  }
+
+  function planCard(p) {
+    return `<div class="plan${p.featured ? ' plan--featured' : ''}">
+      <div class="plan-tag"><span>${p.tag}</span>${p.badge ? `<span class="badge">${p.badge}</span>` : ''}</div>
+      <h3 class="plan-name">${p.name}</h3>
+      <div class="plan-price"><span class="amt">€${p.price}</span><span class="per">${p.per}</span></div>
+      <ul class="plan-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+      <a href="#/contact" class="btn ${p.featured ? 'btn--accent' : 'btn--primary'}">${p.cta}<span class="btn-arrow">→</span></a>
+    </div>`;
+  }
+
+  function faqItem(f, i) {
+    return `<div class="faq-item${i === 0 ? ' open' : ''}">
+      <button class="faq-q" aria-expanded="${i === 0}">
+        <span>${f.q}</span>
+        <span class="plus" aria-hidden="true"></span>
+      </button>
+      <div class="faq-a"><div><div class="faq-a-inner"><p>${f.a}</p></div></div></div>
+    </div>`;
+  }
+
+  function statCard(num, label) {
+    return `<div class="stat-card"><p class="stat-num">${num}</p><p class="stat-label">${label}</p></div>`;
+  }
+
+  function carouselHTML(slides, id) {
+    return `<div class="carousel" data-carousel="${id}">
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          ${slides.map((s, i) => `<figure class="carousel-slide">
+            <img src="${s.src}" alt="${s.caption || ''}" loading="${i < 3 ? 'eager' : 'lazy'}" />
+            ${s.caption ? `<figcaption>${s.caption}</figcaption>` : ''}
+          </figure>`).join('')}
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-counter"></div>
+        <div class="carousel-dots"></div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" data-dir="prev" aria-label="Previous" style="transform:rotate(180deg)">${icon("arrow", 18)}</button>
+          <button class="carousel-btn" data-dir="next" aria-label="Next">${icon("arrow", 18)}</button>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  /* ============================================================
+     NAV
+     ============================================================ */
+  function renderNav(current) {
+    const links = [
+      { href: "#/", label: "Home", key: "home" },
+      { href: "#/spaces/ruzafa", label: "Ruzafa", key: "ruzafa" },
+      { href: "#/spaces/puerta-del-mar", label: "Puerta del Mar", key: "puerta" },
+      { href: "#/pricing", label: "Pricing", key: "pricing" },
+      { href: "#/about", label: "About", key: "about" },
+      { href: "#/contact", label: "Contact", key: "contact" },
+    ];
+    return `<header class="nav">
+      <div class="container nav-row">
+        <a href="#/" class="brand" aria-label="Cowork Up — Home">
+          <img src="assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
+        </a>
+        <nav class="nav-links">
+          ${links.map(l => `<a href="${l.href}" class="${current === l.key ? 'active' : ''}">${l.label}</a>`).join('')}
+        </nav>
+        <div class="nav-cta">
+          <a href="#/contact" class="btn btn--primary">Book a tour<span class="btn-arrow">→</span></a>
+          <button class="btn menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-menu">
+      ${links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+    </div>`;
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  function renderFooter() {
+    const year = new Date().getFullYear();
+    return `<footer class="footer">
+      <div class="container footer-top">
+        <div>
+          <div class="footer-brand">Cowork Up.<br/><em>València.</em></div>
+          <p class="nav-mono" style="margin-top:20px">Two homes for ambitious work.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Spaces</h4>
+          <ul>
+            <li><a href="#/spaces/ruzafa">Ruzafa</a></li>
+            <li><a href="#/spaces/puerta-del-mar">Puerta del Mar</a></li>
+            <li><a href="#/pricing">Pricing</a></li>
+            <li><a href="#/contact">Book a tour</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/about">Team</a></li>
+            <li><a href="#/about">Events</a></li>
+            <li><a href="#/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="mailto:hola@co-workup.com">hola@co-workup.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© ${year} Cowork Up SL · CIF B-12345678</span>
+        <span>València · 39.4699° N, 0.3763° W</span>
+        <span>Made with espresso ✦</span>
+      </div>
+    </footer>`;
+  }
+
+  /* ============================================================
+     MARQUEE
+     ============================================================ */
+  function renderMarquee(items) {
+    const block = items.map(it => `<span class="marquee-item">${it}</span>`).join('');
+    return `<div class="marquee" aria-hidden="true"><div class="marquee-track">${block}${block}${block}${block}</div></div>`;
+  }
+
+  /* ============================================================
+     PAGES
+     ============================================================ */
+
+  // HOME
+  function renderHome() {
+    return `<main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-rings" aria-hidden="true"><span></span></div>
+        <div class="container hero-stage">
+          <div class="deco-card deco-card--tl" aria-hidden="true"><img src="${IMG.cwk1}" alt="" loading="eager" /></div>
+          <div class="deco-card deco-card--tr" aria-hidden="true"><img src="${IMG.cwk4}" alt="" loading="eager" /></div>
+          <div class="deco-card deco-card--bl" aria-hidden="true"><img src="${IMG.cwk3}" alt="" loading="eager" /></div>
+          <div class="deco-card deco-card--br" aria-hidden="true"><img src="${IMG.cwk2}" alt="" loading="eager" /></div>
+          <div class="deco-stat deco-stat--tl" aria-hidden="true"><b>450+</b><small>Members building things here</small></div>
+          <div class="deco-stat deco-stat--br" aria-hidden="true"><b>2</b><small>Locations in central València</small></div>
+          <div class="hero-center">
+            ${eyebrow("Coworking · València")}
+            <h1 class="hero-title">Coworking, made<br/><em>simple in</em> València.</h1>
+            <p class="hero-sub">Two beautifully restored spaces. A community of founders, designers and operators. From €20 a day. Memberships from €59.</p>
+            <div class="hero-feats">
+              <span><span class="dot"></span>24/7 Access</span>
+              <span><span class="dot"></span>1 Gbps WiFi</span>
+              <span><span class="dot"></span>8 Meeting Rooms</span>
+            </div>
+            <div class="hero-ctas">
+              <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
+              <a href="#/pricing" class="btn btn--ghost btn--xl">See plans</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      ${renderMarquee(["Hot desks", "Private offices", "Meeting rooms", "Virtual office", "Day passes", "24/7 access", "València · ES", "Since 2018"])}
+
+      <!-- Spaces -->
+      <section class="section section--tight">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Our spaces")}
+            <h2 class="section-title">Two spaces. <em>Pick the<br/>one</em> that feels like you.</h2>
+            <p class="lede">Both run on the same plan. Both have great coffee. The vibe is the difference.</p>
+          </div>
+          <div class="spaces-split">
+            ${[SPACES.ruzafa, SPACES["puerta-del-mar"]].map(s => `
+              <a href="#/spaces/${s.slug}" class="space-card">
+                <img src="${s.hero}" alt="${s.name}" loading="lazy" />
+                <span class="space-cta">${s.short} <span aria-hidden="true">→</span></span>
+                <div class="space-meta-row"><div>
+                  <h3>${s.tagline}</h3>
+                  <p>${s.sqm} · ${s.seats} · ${s.rooms}</p>
+                </div></div>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Amenities -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("What's included")}
+            <h2 class="section-title">Built for the boring stuff,<br/><em>so you can do</em> the good stuff.</h2>
+          </div>
+          <div class="amenities-grid">
+            ${AMENITIES.map((a, i) => `<div class="reveal">
+              <div class="amenity-card">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start">
+                  <span class="amenity-num">${String(i + 1).padStart(2, '0')}</span>
+                  <span class="amenity-icon">${icon(a.icon, 18)}</span>
+                </div>
+                <div>
+                  <h3 class="amenity-title">${a.title}</h3>
+                  <p class="amenity-desc">${a.desc}</p>
+                </div>
+              </div>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="section section--tight">
+        <div class="container stats">
+          ${statCard("2", "Locations · València")}
+          ${statCard("450+", "Members & alumni")}
+          ${statCard("8", "Meeting rooms")}
+          ${statCard("7yr", "Running since 2018")}
+        </div>
+      </section>
+
+      <!-- Plans -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Pricing")}
+            <h2 class="section-title">Honest plans.<br/><em>Cancel any month.</em></h2>
+            <p class="lede">No setup fees. VAT not included. Memberships work across both locations.</p>
+          </div>
+          <div class="plans-grid">${PLANS.map(planCard).join('')}</div>
+        </div>
+      </section>
+
+      <!-- Carousel -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Inside")}
+            <h2 class="section-title">A look around,<br/><em>frame by frame.</em></h2>
+          </div>
+          ${carouselHTML([
+            { src: IMG.cwk3, caption: "Main floor" },
+            { src: IMG.cwk1, caption: "Mezzanine" },
+            { src: IMG.cwk2, caption: "Phone booths" },
+            { src: IMG.cwk4, caption: "Lockers + entrance" },
+            { src: IMG.ruzafa1, caption: "Lounge" },
+            { src: IMG.puerta1, caption: "Boardroom" },
+            { src: IMG.gal2, caption: "Members at work" },
+            { src: IMG.ruzafa4, caption: "Pantry" },
+            { src: IMG.gal4, caption: "Roof terrace" },
+          ], "home")}
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--tight">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("FAQ")}
+            <h2 class="section-title">Questions, <em>before you commit.</em></h2>
+          </div>
+          <div class="faq-list">${FAQS.map((f, i) => faqItem(f, i)).join('')}</div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="container">
+          <h2 class="cta-headline">Come work where the<br/><em>good ideas</em> live.</h2>
+          <p>Book a free 20-minute tour at either space. Coffee on us. You'll know in five minutes.</p>
+          <div class="cta-banner-ctas">
+            <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
+            <a href="#/pricing" class="btn btn--ghost btn--xl">See plans</a>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  // SPACE DETAIL
+  function renderSpaceDetail(slug) {
+    const s = SPACES[slug];
+    if (!s) return renderHome();
+    const other = slug === "ruzafa" ? SPACES["puerta-del-mar"] : SPACES.ruzafa;
+    const neighShort = s.neighborhood.split(" — ")[0];
+    const addrParts = s.address.split(",");
+
+    return `<main>
+      <section class="section section--tight">
+        <div class="container">
+          <div class="detail-hero">
+            <div class="detail-hero-text">
+              <div>
+                <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
+                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Spaces</span><span>/</span><span>${s.short}</span>
+                </div>
+                ${eyebrow(neighShort + ", València")}
+                <h1 style="margin-top:16px">${s.short}.<br/><em>${s.tagline}</em></h1>
+                <p class="lede" style="margin-top:24px">${s.blurb}</p>
+              </div>
+              <div>
+                <div class="detail-key">
+                  <div><b>${s.sqm}</b><span>Surface</span></div>
+                  <div><b>${s.seats}</b><span>Workstations</span></div>
+                  <div><b>${s.rooms}</b><span>Meeting rooms</span></div>
+                  <div><b>24/7</b><span>Member access</span></div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+                  <a href="#/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
+                  <a href="#/pricing" class="btn btn--ghost btn--lg">See plans</a>
+                </div>
+              </div>
+            </div>
+            <div class="detail-hero-img"><img src="${s.hero}" alt="${s.name}" loading="eager" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="two-col">
+            <div>
+              ${eyebrow("About this space")}
+              <h2 style="margin-top:20px">${s.storyTitle}</h2>
+            </div>
+            <div>
+              <p>${s.storyP1}</p>
+              <p>${s.storyP2}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Inside")}
+            <h2 class="section-title">A walk-through, <em>frame by frame.</em></h2>
+          </div>
+          ${carouselHTML(s.gallery.slice(0, 3).map((src, i) => ({
+            src,
+            caption: ["Lounge", "Hot desks", "Meeting room"][i],
+          })), "space-" + slug)}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("What's here")}
+            <h2 class="section-title">All the small things, <em>handled.</em></h2>
+          </div>
+          <div class="amenities-grid" style="grid-template-columns:repeat(3,1fr)">
+            ${s.perks.map((p, i) => `<div class="amenity-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start">
+                <span class="amenity-num">${String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 class="amenity-title" style="font-size:clamp(20px,1.8vw,26px)">${p}</h3>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="two-col">
+            <div>
+              ${eyebrow("Find us")}
+              <h2 style="margin-top:20px">${addrParts[0]},<br/><em>${addrParts.slice(1).join(",")}</em></h2>
+              <p style="margin-top:24px;color:var(--c-ink-soft)">${s.directions}</p>
+              <div class="detail-key" style="margin-top:28px">
+                <div><b>${neighShort}</b><span>Neighborhood</span></div>
+                <div><b>${s.hours}</b><span>Hours</span></div>
+              </div>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+                <a href="#/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
+                <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Open in Maps ↗</a>
+              </div>
+            </div>
+            <div class="faux-map">
+              <svg width="100%" height="100%" viewBox="0 0 600 750" preserveAspectRatio="none" style="position:absolute;inset:0" aria-hidden="true">
+                <rect width="600" height="750" fill="#FAFAF8"/>
+                <g stroke="#0E0E0E" stroke-opacity="0.06" stroke-width="1">
+                  ${Array.from({length:20}).map((_,i) => `<line x1="0" x2="600" y1="${i*40+20}" y2="${i*40+20}"/>`).join('')}
+                  ${Array.from({length:16}).map((_,i) => `<line x1="${i*40+20}" x2="${i*40+20}" y1="0" y2="750"/>`).join('')}
+                </g>
+                <g stroke="#0E0E0E" stroke-opacity="0.18" stroke-width="3" fill="none">
+                  <line x1="0" y1="320" x2="600" y2="300"/>
+                  <line x1="0" y1="480" x2="600" y2="500"/>
+                  <line x1="140" y1="0" x2="200" y2="750"/>
+                  <line x1="420" y1="0" x2="480" y2="750"/>
+                  <path d="M0,580 C 200,560 400,610 600,580"/>
+                </g>
+                <g stroke="#0E0E0E" stroke-opacity="0.08" stroke-width="1" fill="#0E0E0E" fill-opacity="0.03">
+                  <rect x="220" y="340" width="80" height="60"/>
+                  <rect x="320" y="340" width="80" height="60"/>
+                  <rect x="220" y="420" width="80" height="40"/>
+                  <rect x="320" y="420" width="80" height="40"/>
+                </g>
+              </svg>
+              <div style="position:absolute;left:44%;top:44%;transform:translate(-50%,-100%)">
+                <div style="width:48px;height:48px;background:var(--c-accent);border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(0,0,0,0.25);border:3px solid white">${icon("pin", 22)}</div>
+              </div>
+              <div class="faux-map-label">${s.address}</div>
+              <div class="faux-map-coords">${s.coords}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("The other space")}
+            <h2 class="section-title">Have you seen <em>${other.short}?</em></h2>
+          </div>
+          <a href="#/spaces/${other.slug}" class="space-card" style="aspect-ratio:21/9;display:block">
+            <img src="${other.hero}" alt="${other.name}" loading="lazy" />
+            <span class="space-cta">${other.short} <span aria-hidden="true">→</span></span>
+            <div class="space-meta-row"><div>
+              <h3>${other.tagline}</h3>
+              <p>${other.sqm} · ${other.seats} · ${other.rooms}</p>
+            </div></div>
+          </a>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  // PRICING
+  function renderPricing() {
+    return `<main>
+      <section class="container page-intro">
+        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Pricing</span></div>
+        <h1>Plans you can <em>actually understand.</em></h1>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("All plans")}
+            <p class="lede">All plans include fast Wi-Fi, coffee, phone booths and access to events. Memberships work across both Ruzafa and Puerta del Mar. No setup fees. Cancel any month. VAT not included.</p>
+          </div>
+          <div class="plans-grid">${PLANS.map(planCard).join('')}</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Extras")}
+            <h2 class="section-title">Add-ons, <em>by the hour.</em></h2>
+          </div>
+          <div class="extras-table">
+            ${EXTRAS.map(([title, desc, price], i) => `<div class="extras-row">
+              <span class="amenity-num">${String(i+1).padStart(2,'0')}</span>
+              <div>
+                <div class="extras-title">${title}</div>
+                <div class="extras-desc">${desc}</div>
+              </div>
+              <div class="extras-price">${price}</div>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Pricing FAQ")}
+            <h2 class="section-title">Stuff people ask <em>before signing.</em></h2>
+          </div>
+          <div class="faq-list">${FAQS.slice(0, 5).map((f, i) => faqItem(f, i)).join('')}</div>
+        </div>
+      </section>
+
+      <section class="cta-banner">
+        <div class="container">
+          <h2 class="cta-headline">Still not sure?<br/><em>Try a day.</em></h2>
+          <p>The Day Pass is €20 and we refund it against your first month if you sign up. Book one, come work, see if you click with the room.</p>
+          <div class="cta-banner-ctas">
+            <a href="#/contact" class="btn btn--primary btn--xl">Book a day pass <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  // ABOUT
+  function renderAbout() {
+    return `<main>
+      <section class="container page-intro">
+        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>About</span></div>
+        <h1>We make rooms for people <em>who make things.</em></h1>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="two-col">
+            <div>
+              ${eyebrow("The story")}
+              <h2 style="margin-top:20px">Started in 2018, <em>over a long lunch.</em></h2>
+            </div>
+            <div>
+              <p>Cowork Up began the way most decent ideas do — three friends, a long lunch, and the agreement that the coworking spaces in València at the time were either soulless or weird. We rented a small floor in Ruzafa, spent six months restoring it ourselves, and opened with twelve members.</p>
+              <p>Seven years later we run two buildings, host weekly events, and our members include founders building YC-backed startups, designers shipping for big-name studios, engineers maintaining open source you use, and people on year-long sabbaticals figuring out what's next.</p>
+              <p>We're still small enough to know everyone's name. We'd like to keep it that way.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div style="border-radius:var(--r-lg);overflow:hidden;aspect-ratio:21/9">
+            <img src="${IMG.heroA}" alt="Cowork Up" style="width:100%;height:100%;object-fit:cover;display:block" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Principles")}
+            <h2 class="section-title">What we <em>actually believe.</em></h2>
+          </div>
+          <div class="amenities-grid">
+            ${[
+              { n: "01", t: "Rooms shape work.", d: "Good light, real coffee, quiet doors, the right desk height. We obsess over the small stuff so the work gets easier." },
+              { n: "02", t: "Community over capacity.", d: "We cap memberships before it gets loud. You should always find a desk. You should also recognize the people around you." },
+              { n: "03", t: "Honest pricing.", d: "No setup fees. No hidden 'service charges'. Monthly billing. You can cancel from your dashboard, not from a phone call." },
+              { n: "04", t: "Be a useful neighbor.", d: "We collaborate with local cafés, galleries, designers and conferences. València is the point — we're not building an island." },
+            ].map(p => `<div class="amenity-card">
+              <span class="amenity-num">— ${p.n}</span>
+              <div>
+                <h3 class="amenity-title">${p.t}</h3>
+                <p class="amenity-desc">${p.d}</p>
+              </div>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Team")}
+            <h2 class="section-title">The people <em>who run the place.</em></h2>
+          </div>
+          <div class="team-grid">
+            ${TEAM.map(t => `<div class="team-card">
+              <div class="team-img"><img src="${t.img}" alt="${t.name}" loading="lazy" /></div>
+              <h3 class="team-name">${t.name}</h3>
+              <p class="team-role">${t.role}</p>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("In numbers")}
+            <h2 class="section-title">A few facts, <em>without the fluff.</em></h2>
+          </div>
+          <div class="stats">
+            ${statCard("2018", "Founded")}
+            ${statCard("2", "Locations")}
+            ${statCard("450+", "Members & alumni")}
+            ${statCard("52", "Events / year")}
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-banner">
+        <div class="container">
+          <h2 class="cta-headline">Want to see <em>the place?</em></h2>
+          <p>Book a free 20-minute tour at either space. We'll show you around and put a coffee in your hand.</p>
+          <div class="cta-banner-ctas">
+            <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  // CONTACT
+  function renderContact() {
+    return `<main>
+      <section class="container page-intro">
+        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Contact</span></div>
+        <h1>Say hola. <em>We answer fast.</em></h1>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="contact-grid">
+            <div>
+              <div class="contact-block">
+                <h3>Cowork Up Ruzafa</h3>
+                <p>${SPACES.ruzafa.address}</p>
+                <a href="tel:+34000000000">+34 000 00 00 00</a>
+                <a href="mailto:ruzafa@co-workup.com">ruzafa@co-workup.com</a>
+              </div>
+              <div class="contact-block">
+                <h3>Cowork Up Puerta del Mar</h3>
+                <p>${SPACES["puerta-del-mar"].address}</p>
+                <a href="tel:+34000000001">+34 000 00 00 01</a>
+                <a href="mailto:puertadelmar@co-workup.com">puertadelmar@co-workup.com</a>
+              </div>
+              <div class="contact-block">
+                <h3>General</h3>
+                <a href="mailto:hola@co-workup.com">hola@co-workup.com</a>
+                <a href="#">Instagram · @coworkup</a>
+                <a href="#">LinkedIn · /coworkup</a>
+              </div>
+              <div class="contact-block">
+                <h3>Hours</h3>
+                <p>Reception · Mon–Fri · 9:00–19:00</p>
+                <p>Members · 24/7</p>
+              </div>
+            </div>
+            <div class="contact-form-card">
+              ${eyebrow("Book a tour or ask anything")}
+              <form class="contact-form" style="margin-top:20px" id="contact-form">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" required placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" required placeholder="hola@…" />
+                </div>
+                <div class="field">
+                  <label for="loc">Which space?</label>
+                  <select id="loc">
+                    <option value="" disabled selected>Pick one</option>
+                    <option>Cowork Up Ruzafa</option>
+                    <option>Cowork Up Puerta del Mar</option>
+                    <option>Either / not sure</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="topic">I'm interested in</label>
+                  <select id="topic">
+                    <option value="tour" selected>Booking a tour</option>
+                    <option>A day pass</option>
+                    <option>A monthly plan</option>
+                    <option>A meeting room</option>
+                    <option>The event hall</option>
+                    <option>Virtual office</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="msg">Message</label>
+                  <textarea id="msg" placeholder="Tell us a bit about what you're after."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg">Send message <span class="btn-arrow">→</span></button>
+                <p class="nav-mono" style="margin-top:4px">We answer within one working day. Usually faster.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  /* ============================================================
+     ROUTER
+     ============================================================ */
+  function getRoute() {
+    return (window.location.hash || "#/").replace(/^#/, "") || "/";
+  }
+
+  function routeToKey(route) {
+    if (route === "/" || route === "") return "home";
+    if (route === "/spaces/ruzafa") return "ruzafa";
+    if (route === "/spaces/puerta-del-mar") return "puerta";
+    if (route === "/pricing") return "pricing";
+    if (route === "/about") return "about";
+    if (route === "/contact") return "contact";
+    return "home";
+  }
+
+  function renderPage(route) {
+    if (route === "/" || route === "") return renderHome();
+    if (route === "/spaces/ruzafa") return renderSpaceDetail("ruzafa");
+    if (route === "/spaces/puerta-del-mar") return renderSpaceDetail("puerta-del-mar");
+    if (route === "/pricing") return renderPricing();
+    if (route === "/about") return renderAbout();
+    if (route === "/contact") return renderContact();
+    return renderHome();
+  }
+
+  function mount() {
+    const route = getRoute();
+    const current = routeToKey(route);
+    const root = document.getElementById("root");
+    root.innerHTML = renderNav(current) + renderPage(route) + renderFooter();
+    bindInteractions();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  /* ============================================================
+     INTERACTIONS
+     ============================================================ */
+  function bindInteractions() {
+    // Mobile menu
+    const toggle = document.querySelector(".menu-toggle");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    if (toggle && mobileMenu) {
+      toggle.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        toggle.textContent = isOpen ? "✕" : "☰";
+      });
+      mobileMenu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          toggle.textContent = "☰";
+        });
+      });
+    }
+
+    // FAQ
+    document.querySelectorAll(".faq-q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        item.classList.toggle("open");
+        btn.setAttribute("aria-expanded", item.classList.contains("open"));
+      });
+    });
+
+    // Contact form
+    const form = document.getElementById("contact-form");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        form.closest(".contact-form-card").innerHTML = `
+          ${eyebrow("Book a tour or ask anything")}
+          <div style="margin-top:24px;padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. Thanks!</h3>
+            <p style="margin:0;color:var(--c-ink-soft)">We usually reply within a few hours. Check your inbox (and maybe spam, just in case).</p>
+          </div>
+        `;
+      });
+    }
+
+    // Carousels
+    document.querySelectorAll("[data-carousel]").forEach(initCarousel);
+
+    // Scroll reveals
+    initReveal();
+  }
+
+  function initCarousel(el) {
+    const track = el.querySelector(".carousel-track");
+    const slides = track.querySelectorAll(".carousel-slide");
+    const counter = el.querySelector(".carousel-counter");
+    const dotsWrap = el.querySelector(".carousel-dots");
+    const prevBtn = el.querySelector('[data-dir="prev"]');
+    const nextBtn = el.querySelector('[data-dir="next"]');
+    const n = slides.length;
+    let visible = 3;
+    let current = 0;
+
+    function getVisible() {
+      if (window.innerWidth <= 560) return 1;
+      if (window.innerWidth <= 880) return 2;
+      return 3;
+    }
+
+    function update() {
+      visible = getVisible();
+      const pages = Math.max(1, n - visible + 1);
+      current = Math.min(current, pages - 1);
+
+      const first = slides[0];
+      if (!first) return;
+      const slideW = first.getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
+      track.style.transform = `translateX(-${current * (slideW + gap)}px)`;
+
+      counter.textContent = `${String(current + 1).padStart(2, "0")} / ${String(pages).padStart(2, "0")}`;
+
+      dotsWrap.innerHTML = "";
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement("button");
+        dot.className = "carousel-dot" + (i === current ? " active" : "");
+        dot.setAttribute("aria-label", `Go to page ${i + 1}`);
+        dot.addEventListener("click", () => { current = i; update(); });
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function go(dir) {
+      const pages = Math.max(1, n - getVisible() + 1);
+      current = ((current + dir) % pages + pages) % pages;
+      update();
+    }
+
+    prevBtn.addEventListener("click", () => go(-1));
+    nextBtn.addEventListener("click", () => go(1));
+
+    update();
+    window.addEventListener("resize", update);
+
+    const autoplay = setInterval(() => go(1), 4500);
+    el.addEventListener("mouseenter", () => clearInterval(autoplay));
+  }
+
+  function initReveal() {
+    const els = document.querySelectorAll(".reveal");
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add("in"), i * 50);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    els.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("in");
+      } else {
+        io.observe(el);
+      }
+    });
+  }
+
+  /* ============================================================
+     INIT
+     ============================================================ */
+  window.addEventListener("hashchange", mount);
+  mount();
+  </script>
+</body>
+</html>
