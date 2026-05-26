@@ -236,7 +236,7 @@
       { href: "#/spaces/ruzafa", label: "Ruzafa", key: "ruzafa" },
       { href: "#/spaces/puerta-del-mar", label: "Puerta del Mar", key: "puerta" },
       { href: "#/pricing", label: "Pricing", key: "pricing" },
-      { href: "#/about", label: "About", key: "about" },
+      { href: "#/office", label: "Office as a Service", key: "office" },
       { href: "#/contact", label: "Contact", key: "contact" },
     ];
     return `<header class="nav">
@@ -281,9 +281,7 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#/about">About</a></li>
-            <li><a href="#/about">Team</a></li>
-            <li><a href="#/about">Events</a></li>
+            <li><a href="#/office">Office as a Service</a></li>
             <li><a href="#/contact">Contact</a></li>
           </ul>
         </div>
@@ -671,34 +669,45 @@
     </main>`;
   }
 
-  // ABOUT
-  function renderAbout() {
+  // OFFICE AS A SERVICE
+  function renderOffice() {
     return `<main>
-      <section class="container page-intro">
-        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>About</span></div>
-        <h1>We make rooms for people <em>who make things.</em></h1>
-      </section>
-
       <section class="section section--tight">
         <div class="container">
-          <div class="two-col">
-            <div>
-              ${eyebrow("The story")}
-              <h2 style="margin-top:20px">Started in 2018, <em>over a long lunch.</em></h2>
+          <div class="detail-hero">
+            <div class="detail-hero-text">
+              <div>
+                <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
+                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Office as a Service</span>
+                </div>
+                ${eyebrow("By co-workables")}
+                <h1 style="margin-top:16px">Your office,<br/><em>without the headache.</em></h1>
+                <p class="lede" style="margin-top:24px">We find, build, and run your private office in València. Zero CAPEX, no long-term lease, no operational headaches. You just show up.</p>
+              </div>
+              <div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+                  <a href="#/office" class="btn btn--primary btn--lg" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
+                  <a href="#/pricing" class="btn btn--ghost btn--lg">See plans</a>
+                </div>
+              </div>
             </div>
-            <div>
-              <p>Cowork Up began the way most decent ideas do — three friends, a long lunch, and the agreement that the coworking spaces in València at the time were either soulless or weird. We rented a small floor in Ruzafa, spent six months restoring it ourselves, and opened with twelve members.</p>
-              <p>Seven years later we run two buildings, host weekly events, and our members include founders building YC-backed startups, designers shipping for big-name studios, engineers maintaining open source you use, and people on year-long sabbaticals figuring out what's next.</p>
-              <p>We're still small enough to know everyone's name. We'd like to keep it that way.</p>
-            </div>
+            <div class="detail-hero-img"><img src="${IMG.heroA}" alt="Office as a Service" loading="eager" /></div>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <div style="border-radius:var(--r-lg);overflow:hidden;aspect-ratio:21/9">
-            <img src="${IMG.heroA}" alt="Cowork Up" style="width:100%;height:100%;object-fit:cover;display:block" />
+          <div class="two-col">
+            <div>
+              ${eyebrow("The service")}
+              <h2 style="margin-top:20px">We find it, build it, and run it. <em>You just show up.</em></h2>
+            </div>
+            <div>
+              <p>Your company needs a space in València. You don't need the six-month search, the architect, the furniture suppliers, the cleaning contracts, or the IT setup. You definitely don't need a five-year lease.</p>
+              <p>We handle everything — from scouting the right location to fitting it out, furnishing it, stocking it, cleaning it, and managing it day-to-day. You get a fully operational private office with zero CAPEX and no long-term property commitments.</p>
+              <p>Powered by co-workables, the team behind Cowork Up. We've been running workspaces in València since 2018. We know the neighborhoods, the landlords, the contractors, and what actually matters when people sit down to work.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -706,15 +715,19 @@
       <section class="section">
         <div class="container">
           <div class="section-head">
-            ${eyebrow("Principles")}
-            <h2 class="section-title">What we <em>actually believe.</em></h2>
+            ${eyebrow("What's included")}
+            <h2 class="section-title">Everything your office needs, <em>handled.</em></h2>
           </div>
           <div class="amenities-grid">
             ${[
-              { n: "01", t: "Rooms shape work.", d: "Good light, real coffee, quiet doors, the right desk height. We obsess over the small stuff so the work gets easier." },
-              { n: "02", t: "Community over capacity.", d: "We cap memberships before it gets loud. You should always find a desk. You should also recognize the people around you." },
-              { n: "03", t: "Honest pricing.", d: "No setup fees. No hidden 'service charges'. Monthly billing. You can cancel from your dashboard, not from a phone call." },
-              { n: "04", t: "Be a useful neighbor.", d: "We collaborate with local cafés, galleries, designers and conferences. València is the point — we're not building an island." },
+              { n: "01", t: "Location scouting", d: "We find the right space in València for your team — neighborhood, size, budget, all matched." },
+              { n: "02", t: "Fit-out & design", d: "Full office build-out: walls, floors, lighting, furniture, and your branding on the walls." },
+              { n: "03", t: "Cleaning", d: "Daily professional cleaning included. Bathrooms, kitchen, desks — always ready." },
+              { n: "04", t: "Internet", d: "1 Gbps symmetrical fiber with a backup line. We manage the provider and the hardware." },
+              { n: "05", t: "Amenities", d: "Coffee, water, kitchen supplies, meeting rooms, printer — everything stocked and maintained." },
+              { n: "06", t: "Services", d: "Mail handling, printing, courier, reception. The small stuff that adds up when you do it yourself." },
+              { n: "07", t: "Office manager", d: "A dedicated person running your space day-to-day. Your team just focuses on their work." },
+              { n: "08", t: "Flexibility", d: "Scale up or down as you grow. No multi-year lock-in. Monthly terms that adapt to your needs." },
             ].map(p => `<div class="amenity-card">
               <span class="amenity-num">— ${p.n}</span>
               <div>
@@ -726,43 +739,78 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section--tight">
         <div class="container">
-          <div class="section-head">
-            ${eyebrow("Team")}
-            <h2 class="section-title">The people <em>who run the place.</em></h2>
-          </div>
-          <div class="team-grid">
-            ${TEAM.map(t => `<div class="team-card">
-              <div class="team-img"><img src="${t.img}" alt="${t.name}" loading="lazy" /></div>
-              <h3 class="team-name">${t.name}</h3>
-              <p class="team-role">${t.role}</p>
-            </div>`).join('')}
+          <div class="stats">
+            ${statCard("1", "Tell us what you need")}
+            ${statCard("2", "We find the space")}
+            ${statCard("3", "We build it out")}
+            ${statCard("4", "You move in")}
           </div>
         </div>
       </section>
 
-      <section class="section section--tight">
+      <section class="section">
         <div class="container">
-          <div class="section-head">
-            ${eyebrow("In numbers")}
-            <h2 class="section-title">A few facts, <em>without the fluff.</em></h2>
-          </div>
-          <div class="stats">
-            ${statCard("2018", "Founded")}
-            ${statCard("2", "Locations")}
-            ${statCard("450+", "Members & alumni")}
-            ${statCard("52", "Events / year")}
+          <div class="contact-grid">
+            <div>
+              ${eyebrow("Get started")}
+              <h2 style="margin-top:20px">Ready to skip <em>the hard part?</em></h2>
+              <p style="margin-top:16px;color:var(--c-muted)">Tell us what your team needs. We'll come back with a space, a price, and a timeline.</p>
+              <ul style="margin-top:24px;list-style:none;padding:0;display:flex;flex-direction:column;gap:12px">
+                <li style="display:flex;align-items:center;gap:10px">${icon("check",18)}<span>No upfront investment</span></li>
+                <li style="display:flex;align-items:center;gap:10px">${icon("check",18)}<span>No long-term lease</span></li>
+                <li style="display:flex;align-items:center;gap:10px">${icon("check",18)}<span>Operational in weeks, not months</span></li>
+                <li style="display:flex;align-items:center;gap:10px">${icon("check",18)}<span>One monthly invoice, everything included</span></li>
+              </ul>
+            </div>
+            <div class="contact-form-card" id="office-form-card">
+              ${eyebrow("Get a proposal")}
+              <form class="contact-form" style="margin-top:20px" id="office-form">
+                <div class="field">
+                  <label for="of-company">Company name</label>
+                  <input id="of-company" required placeholder="Acme Inc." />
+                </div>
+                <div class="field">
+                  <label for="of-name">Contact person</label>
+                  <input id="of-name" required placeholder="Jane Smith" />
+                </div>
+                <div class="field">
+                  <label for="of-email">Email</label>
+                  <input id="of-email" type="email" required placeholder="jane@acme.com" />
+                </div>
+                <div class="field">
+                  <label for="of-phone">Phone number</label>
+                  <input id="of-phone" type="tel" required placeholder="+34 600 000 000" />
+                </div>
+                <div class="field">
+                  <label for="of-desks">Number of desks</label>
+                  <input id="of-desks" type="number" required min="1" placeholder="10" />
+                </div>
+                <div class="field">
+                  <label for="of-timeline">Timeline</label>
+                  <select id="of-timeline" required>
+                    <option value="" disabled selected>When do you need it?</option>
+                    <option value="immediate">Immediate</option>
+                    <option value="3-6">3–6 months</option>
+                    <option value="6-12">6–12 months</option>
+                    <option value="12+">+12 months</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg">Get a proposal <span class="btn-arrow">→</span></button>
+                <p class="nav-mono" style="margin-top:4px">We reply within 48 hours. Usually faster.</p>
+              </form>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="cta-banner">
         <div class="container">
-          <h2 class="cta-headline">Want to see <em>the place?</em></h2>
-          <p>Book a free 20-minute tour at either space. We'll show you around and put a coffee in your hand.</p>
+          <h2 class="cta-headline">Let us build <em>your office.</em></h2>
+          <p>Tell us what you need. We'll come back with a space, a price, and a timeline.</p>
           <div class="cta-banner-ctas">
-            <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
+            <a href="#/office" class="btn btn--primary btn--xl" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
           </div>
         </div>
       </section>
@@ -863,7 +911,7 @@
     if (route === "/spaces/ruzafa") return "ruzafa";
     if (route === "/spaces/puerta-del-mar") return "puerta";
     if (route === "/pricing") return "pricing";
-    if (route === "/about") return "about";
+    if (route === "/office") return "office";
     if (route === "/contact") return "contact";
     return "home";
   }
@@ -873,7 +921,7 @@
     if (route === "/spaces/ruzafa") return renderSpaceDetail("ruzafa");
     if (route === "/spaces/puerta-del-mar") return renderSpaceDetail("puerta-del-mar");
     if (route === "/pricing") return renderPricing();
-    if (route === "/about") return renderAbout();
+    if (route === "/office") return renderOffice();
     if (route === "/contact") return renderContact();
     return renderHome();
   }
@@ -926,6 +974,20 @@
           <div style="margin-top:24px;padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
             <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. Thanks!</h3>
             <p style="margin:0;color:var(--c-ink-soft)">We usually reply within a few hours. Check your inbox (and maybe spam, just in case).</p>
+          </div>
+        `;
+      });
+    }
+
+    // Office form
+    const officeForm = document.getElementById("office-form");
+    if (officeForm) {
+      officeForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        officeForm.closest(".contact-form-card").innerHTML = `
+          <div style="padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. We'll be in touch!</h3>
+            <p style="margin:0;color:var(--c-ink-soft)">Expect a proposal in your inbox within 48 hours. We'll reach out by phone if we need any clarification.</p>
           </div>
         `;
       });
