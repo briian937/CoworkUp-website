@@ -1,16 +1,238 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cowork Up — Coworking in València</title>
-  <meta name="description" content="Two beautifully restored coworking spaces in València — Ruzafa and Puerta del Mar. Day passes, hot desks, dedicated desks, meeting rooms and virtual office plans." />
+  <meta name="description" content="Espacios de coworking en València — Ruzafa y Puerta del Mar. Hot desks, fix desks, salas de reuniones, oficina virtual y Office as a Service. Desde 20 €/día." />
+  <link rel="canonical" href="https://co-workup.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cowork Up" />
+  <meta property="og:title" content="Cowork Up — Coworking en València" />
+  <meta property="og:description" content="Dos espacios de coworking en el centro de València. Hot desks, fix desks, salas de reuniones, oficina virtual. Desde 20 €/día." />
+  <meta property="og:url" content="https://co-workup.com/" />
+  <meta property="og:image" content="https://co-workup.com/assets/space-ruzafa-4.jpg" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cowork Up — Coworking en València" />
+  <meta name="twitter:description" content="Dos espacios de coworking en el centro de València. Hot desks, fix desks, salas de reuniones, oficina virtual. Desde 20 €/día." />
+  <meta name="twitter:image" content="https://co-workup.com/assets/space-ruzafa-4.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cowork Up",
+    "url": "https://co-workup.com",
+    "logo": "https://co-workup.com/assets/logo.png",
+    "email": "info@co-workup.com",
+    "description": "Espacios de coworking en València con dos ubicaciones: Ruzafa y Puerta del Mar. Hot desks, fix desks, salas de reuniones, oficina virtual y Office as a Service.",
+    "foundingDate": "2018",
+    "areaServed": {
+      "@type": "City",
+      "name": "València",
+      "sameAs": "https://en.wikipedia.org/wiki/Valencia"
+    },
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://co-workup.com/#ruzafa",
+    "name": "Cowork Up Ruzafa",
+    "description": "Espacio de coworking en el barrio de Ruzafa, València. 500 m², 2 salas de reuniones, 5 cabinas telefónicas, cocina equipada, café de especialidad.",
+    "url": "https://co-workup.com/#/spaces/ruzafa",
+    "telephone": "+34627653141",
+    "email": "info@co-workup.com",
+    "image": "https://co-workup.com/assets/space-ruzafa.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C/ Carlos Cervera 14",
+      "addressLocality": "València",
+      "postalCode": "46006",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.46,
+      "longitude": -0.37
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "20:30"
+    },
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Cowork Up"
+    },
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Meeting rooms", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Phone booths", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Pet-friendly", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Bike storage", "value": true}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://co-workup.com/#puerta-del-mar",
+    "name": "Cowork Up Puerta del Mar",
+    "description": "Espacio de coworking en Puerta del Mar, centro histórico de València. 700 m², 5 salas de reuniones, 6 cabinas telefónicas, salón de eventos, cocina equipada.",
+    "url": "https://co-workup.com/#/spaces/puerta-del-mar",
+    "telephone": "+34670758698",
+    "email": "info@co-workup.com",
+    "image": "https://co-workup.com/assets/space-puerta.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C/ Cronista Carreres 10",
+      "addressLocality": "València",
+      "postalCode": "46003",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.47,
+      "longitude": -0.37
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:30",
+      "closes": "20:00"
+    },
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Cowork Up"
+    },
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Meeting rooms", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Phone booths", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Event hall", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Bike storage", "value": true}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I try the space before signing up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Of course. Book a Day Pass and come work for a day, or drop us a line and we'll give you a tour. No pressure, no pitch — bring your laptop, take a desk, see if it feels right."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which location should I pick?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All Hot Desk, Fix Desk and 10h Flex plans work across both Ruzafa and Puerta del Mar. Most members rotate. Ruzafa skews creative and quieter; Puerta del Mar is bigger, brighter, and busier with meetings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you have private offices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We do — small private offices for 2–6 people at Puerta del Mar. Drop us an email; we keep a short waitlist and they don't sit on the website."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in the meeting room hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hours are pooled and roll into the next month if unused (up to 1.5× your monthly credit). Booking is in 30-minute blocks. Extras are €8/hour for small rooms, €18/hour for boardrooms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get a registered business address?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our Virtual Office plan gives you a Valencia address, mail forwarding, package handling and four day-passes per year. Companies registered with us can also receive notarial documents at the front desk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you have events?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every week. Beer Day, Pizza Friday, Happy Hour, startup networking, and more. Our community is international — you'll meet founders, designers and operators from all over. Members get first access; some events are open to the public."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about parking and bikes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both locations have secure indoor bike racks. Parking is street-only — we're in the center of Valencia. Most members get here by bike, scooter, metro or on foot."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bring my dog?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes at Ruzafa, no at Puerta del Mar. Both spaces have a no-bark rule on busy days; we'll politely point you to a booth if needed."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Office as a Service",
+    "provider": {
+      "@type": "Organization",
+      "name": "Cowork Up"
+    },
+    "description": "Servicio integral de oficina llave en mano en València. Buscamos, diseñamos, equipamos y gestionamos tu oficina privada. Sin inversión inicial, sin contrato de alquiler a largo plazo.",
+    "areaServed": {
+      "@type": "City",
+      "name": "València"
+    },
+    "serviceType": "Office as a Service",
+    "offers": {
+      "@type": "Offer",
+      "description": "Oficina privada completamente equipada y gestionada. Precio personalizado según necesidades.",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>
@@ -55,15 +277,15 @@
       tagline: "C/ Carlos Cervera 14",
       address: "C/ Carlos Cervera 14, 46006 València",
       neighborhood: "Ruzafa — the design district",
-      sqm: "420 m²", seats: "48 seats", rooms: "3 meeting rooms",
-      hours: "Mon–Fri · 24/7 for members",
+      sqm: "500 m²", meetings: "2", booths: "5",
+      hours: "Mon–Fri · 08:00–20:30",
       hero: "assets/space-ruzafa.jpg",
-      blurb: "Tucked between cafés, indie galleries and vinyl shops, our Ruzafa house is a low-lit, plant-heavy second home for designers, founders and makers building something out loud.",
-      perks: ["Bike storage", "Sound-treated calls", "Phone booths", "Roof terrace", "Stocked pantry", "Pet-friendly"],
+      blurb: "Tucked between cafés, indie galleries and vinyl shops, our Ruzafa house is a plant-heavy second home for designers, founders and makers building something out loud.",
+      perks: ["Meeting rooms & phone booths", "Fully equipped kitchen", "Rest areas", "Free fruit", "Specialty coffee", "Pet-friendly"],
       gallery: [IMG.ruzafa2, IMG.ruzafa3, IMG.ruzafa4, IMG.ruzafa5, IMG.gal3],
       storyTitle: 'The creative house, <em>on a quiet street in Ruzafa.</em>',
       storyP1: "Ruzafa is the design district. Galleries, vinyl shops, vermouth bars, ceramicists. We share a block with our favorite bakery. Members tend to be designers, indie devs, small studios, and freelancers who don't want to work from a kitchen table anymore.",
-      storyP2: "The space is intentionally smaller. Quiet by default. Two phone booths, three meeting rooms, a sunny roof terrace, and a pantry stocked with the kind of snacks you'd actually eat.",
+      storyP2: "500 m² with five phone booths, two meeting rooms, a fully equipped kitchen, rest areas, and specialty coffee. Plus free fruit every day — because we believe good work starts with good fuel.",
       directions: "Two minutes from the Russafa metro (line 1). Quiet residential street — look for the yellow door with the small brass plate.",
       coords: "39.46° N · 0.37° W",
     },
@@ -74,15 +296,15 @@
       tagline: "C/ Cronista Carreres 10",
       address: "C/ Cronista Carreres 10, 46003 València",
       neighborhood: "Puerta del Mar — the historic core",
-      sqm: "580 m²", seats: "72 seats", rooms: "5 meeting rooms",
-      hours: "Mon–Fri · 24/7 for members",
+      sqm: "700 m²", meetings: "5", booths: "6",
+      hours: "Mon–Fri · 07:30–20:00",
       hero: "assets/space-puerta.jpg",
       blurb: "A 19th-century building with five-meter ceilings, marble floors and floor-to-ceiling balconies. Light pours in all day. The kind of place you bring a client when you want them to say yes.",
-      perks: ["Reception desk", "Espresso bar", "Podcast room", "Event hall", "Private call booths", "Members lounge"],
+      perks: ["Meeting rooms & phone booths", "Fully equipped kitchen", "Rest areas", "Event hall", "Private call booths", "Members lounge"],
       gallery: [IMG.puerta2, IMG.puerta3, IMG.puerta4, IMG.puerta5, IMG.gal1],
       storyTitle: 'A bright, classical floor, <em>two blocks from the old port.</em>',
       storyP1: "Puerta del Mar is València's classical core — wide avenues, plane trees, the old port a five-minute walk away. The building is from 1898 and has been gently restored: original tile floors, period balcony doors, fast fiber hidden behind plaster moldings.",
-      storyP2: "It's our larger location, with five meeting rooms, an event hall that fits 60, a podcast studio, and a separate espresso bar with a barista on weekday mornings.",
+      storyP2: "It's our larger location at 700 m², with five meeting rooms, six phone booths, a fully equipped kitchen, rest areas, and an event hall.",
       directions: "Three minutes from Colón metro (lines 3, 5, 7, 9). Right on the Carrer de la Pau axis. Look for the carved stone façade and the porter's lodge.",
       coords: "39.47° N · 0.37° W",
     },
@@ -101,13 +323,13 @@
 
   const AMENITIES = [
     { icon: "wifi", title: "Symmetrical fiber", desc: "1 Gbps up / down. Backup line. We measure it weekly so you don't have to." },
-    { icon: "coffee", title: "Decent coffee", desc: "Single-origin espresso, oat milk, kombucha on tap, and a fridge full of snacks." },
+    { icon: "coffee", title: "Specialty coffee", desc: "Specialty coffee, free fruit every day, and a fully equipped kitchen at both locations." },
     { icon: "phone", title: "Phone booths", desc: "Sound-treated booths for calls, demos and the occasional argument with your CTO." },
     { icon: "meet", title: "Meeting rooms", desc: "From two-person huddles to 12-seat boardrooms. Book in two taps from the app." },
     { icon: "print", title: "Print & ship", desc: "Color print, scan, courier pickup. We sign for your packages so you don't have to be here." },
     { icon: "lock", title: "24/7 access", desc: "Keycard entry around the clock for full members. Work when you actually want to." },
     { icon: "bike", title: "Bike storage", desc: "Indoor racks, secure and covered. There's a shower on Ruzafa if you commute by sweat." },
-    { icon: "events", title: "Weekly events", desc: "Talks, demo nights, breakfast, yoga, and the occasional terrace party. Members-only." },
+    { icon: "events", title: "Weekly events", desc: "Beer Day, Pizza Friday, Happy Hour, startup networking, and more. International community included." },
   ];
 
   const FAQS = [
@@ -116,7 +338,7 @@
     { q: "Do you have private offices?", a: "We do — small private offices for 2–6 people at Puerta del Mar. Drop us an email; we keep a short waitlist and they don't sit on the website." },
     { q: "What's included in the meeting room hours?", a: "Hours are pooled and roll into the next month if unused (up to 1.5× your monthly credit). Booking is in 30-minute blocks. Extras are €8 / hour for small rooms, €18 / hour for boardrooms." },
     { q: "Can I get a registered business address?", a: "Yes. Our Virtual Office plan gives you a Valencia address, mail forwarding, package handling and four day-passes per year. Companies registered with us can also receive notarial documents at the front desk." },
-    { q: "Do you have events?", a: "Every week. Demo nights, founder breakfasts, design crits, language exchange, and a Thursday terrace happy hour in summer. Members get first access; some events are open to the public." },
+    { q: "Do you have events?", a: "Every week. Beer Day, Pizza Friday, Happy Hour, startup networking, and more. Our community is international — you'll meet founders, designers and operators from all over. Members get first access; some events are open to the public." },
     { q: "What about parking and bikes?", a: "Both locations have secure indoor bike racks. Parking is street-only — we're in the center of Valencia. Most members get here by bike, scooter, metro or on foot." },
     { q: "Can I bring my dog?", a: "Yes at Ruzafa, no at Puerta del Mar. Both spaces have a no-bark rule on busy days; we'll politely point you to a booth if needed." },
   ];
@@ -363,7 +585,7 @@
                 <span class="space-cta">${s.short} <span aria-hidden="true">→</span></span>
                 <div class="space-meta-row"><div>
                   <h3>${s.tagline}</h3>
-                  <p>${s.sqm} · ${s.seats} · ${s.rooms}</p>
+                  <p>${s.sqm} · ${s.meetings} meeting rooms · ${s.booths} phone booths</p>
                 </div></div>
               </a>
             `).join('')}
@@ -487,9 +709,9 @@
               <div>
                 <div class="detail-key">
                   <div><b>${s.sqm}</b><span>Surface</span></div>
-                  <div><b>${s.seats}</b><span>Workstations</span></div>
-                  <div><b>${s.rooms}</b><span>Meeting rooms</span></div>
-                  <div><b>24/7</b><span>Member access</span></div>
+                  <div><b>${s.meetings}</b><span>Meeting rooms</span></div>
+                  <div><b>${s.booths}</b><span>Phone booths</span></div>
+                  <div><b>${s.hours.split('·')[1]?.trim() || s.hours}</b><span>Hours</span></div>
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
                   <a href="#/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
@@ -835,25 +1057,22 @@
               <div class="contact-block">
                 <h3>Cowork Up Ruzafa</h3>
                 <p>${SPACES.ruzafa.address}</p>
-                <a href="tel:+34000000000">+34 000 00 00 00</a>
-                <a href="mailto:ruzafa@co-workup.com">ruzafa@co-workup.com</a>
+                <a href="tel:+34627653141">+34 627 65 31 41</a>
+                <a href="mailto:info@co-workup.com">info@co-workup.com</a>
+                <p>Mon–Fri · 08:00–20:30</p>
               </div>
               <div class="contact-block">
                 <h3>Cowork Up Puerta del Mar</h3>
                 <p>${SPACES["puerta-del-mar"].address}</p>
-                <a href="tel:+34000000001">+34 000 00 00 01</a>
-                <a href="mailto:puertadelmar@co-workup.com">puertadelmar@co-workup.com</a>
+                <a href="tel:+34670758698">+34 670 75 86 98</a>
+                <a href="mailto:info@co-workup.com">info@co-workup.com</a>
+                <p>Mon–Fri · 07:30–20:00</p>
               </div>
               <div class="contact-block">
                 <h3>General</h3>
-                <a href="mailto:hola@co-workup.com">hola@co-workup.com</a>
+                <a href="mailto:info@co-workup.com">info@co-workup.com</a>
                 <a href="#">Instagram · @coworkup</a>
                 <a href="#">LinkedIn · /coworkup</a>
-              </div>
-              <div class="contact-block">
-                <h3>Hours</h3>
-                <p>Reception · Mon–Fri · 9:00–19:00</p>
-                <p>Members · 24/7</p>
               </div>
             </div>
             <div class="contact-form-card">
@@ -929,11 +1148,51 @@
     return renderHome();
   }
 
+  const PAGE_META = {
+    home: {
+      title: "Cowork Up — Coworking en València | Hot Desk, Fix Desk, Salas de Reuniones",
+      description: "Espacios de coworking en València — Ruzafa y Puerta del Mar. Hot desks, fix desks, salas de reuniones, oficina virtual y Office as a Service. Desde 20 €/día.",
+    },
+    ruzafa: {
+      title: "Cowork Up Ruzafa — Coworking en Ruzafa, València",
+      description: "Espacio de coworking en Ruzafa, València. 500 m², 2 salas de reuniones, 5 cabinas telefónicas, cocina equipada. Hot desks desde 169 €/mes.",
+    },
+    puerta: {
+      title: "Cowork Up Puerta del Mar — Coworking en el centro de València",
+      description: "Espacio de coworking en Puerta del Mar, centro de València. 700 m², 5 salas de reuniones, 6 cabinas, salón de eventos. Hot desks desde 169 €/mes.",
+    },
+    pricing: {
+      title: "Precios y Planes — Cowork Up València | Desde 20 €/día",
+      description: "Planes de coworking en València: Day Pass 20 €, Hot Desk 169 €/mes, Fix Desk 239 €/mes, oficina virtual 39 €/mes. Sin permanencia. Ruzafa y Puerta del Mar.",
+    },
+    office: {
+      title: "Office as a Service València — Cowork Up | Tu oficina llave en mano",
+      description: "Oficina privada llave en mano en València. Buscamos, equipamos y gestionamos tu espacio. Sin inversión inicial, sin contrato a largo plazo. Propuesta en 48h.",
+    },
+    contact: {
+      title: "Contacto — Cowork Up València | Reserva tu visita",
+      description: "Contacta con Cowork Up. Ruzafa: +34 627 65 31 41. Puerta del Mar: +34 670 75 86 98. info@co-workup.com. Reserva una visita gratuita.",
+    },
+  };
+
+  function updateMeta(key) {
+    const meta = PAGE_META[key] || PAGE_META.home;
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]').setAttribute("content", meta.description);
+    document.querySelector('link[rel="canonical"]').setAttribute("href", "https://co-workup.com/#/" + (key === "home" ? "" : key === "ruzafa" ? "spaces/ruzafa" : key === "puerta" ? "spaces/puerta-del-mar" : key));
+    document.querySelector('meta[property="og:title"]').setAttribute("content", meta.title);
+    document.querySelector('meta[property="og:description"]').setAttribute("content", meta.description);
+    document.querySelector('meta[property="og:url"]').setAttribute("content", "https://co-workup.com/#/" + (key === "home" ? "" : key === "ruzafa" ? "spaces/ruzafa" : key === "puerta" ? "spaces/puerta-del-mar" : key));
+    document.querySelector('meta[name="twitter:title"]').setAttribute("content", meta.title);
+    document.querySelector('meta[name="twitter:description"]').setAttribute("content", meta.description);
+  }
+
   function mount() {
     const route = getRoute();
     const current = routeToKey(route);
     const root = document.getElementById("root");
     root.innerHTML = renderNav(current) + renderPage(route) + renderFooter();
+    updateMeta(current);
     bindInteractions();
     window.scrollTo({ top: 0, behavior: "instant" });
   }
@@ -1134,5 +1393,57 @@
   window.addEventListener("hashchange", mount);
   mount();
   </script>
+
+  <noscript>
+    <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif">
+      <h1>Cowork Up — Coworking en València</h1>
+      <p>Dos espacios de coworking en el centro de València: <strong>Ruzafa</strong> y <strong>Puerta del Mar</strong>. Hot desks, fix desks, salas de reuniones, oficina virtual y Office as a Service para empresas. Desde 20 €/día.</p>
+
+      <h2>Cowork Up Ruzafa</h2>
+      <p>C/ Carlos Cervera 14, 46006 València · Tel: <a href="tel:+34627653141">+34 627 65 31 41</a></p>
+      <p>500 m² · 2 salas de reuniones · 5 cabinas telefónicas · Cocina equipada · Café de especialidad · Pet-friendly</p>
+      <p>Horario: Lunes a Viernes 08:00–20:30</p>
+
+      <h2>Cowork Up Puerta del Mar</h2>
+      <p>C/ Cronista Carreres 10, 46003 València · Tel: <a href="tel:+34670758698">+34 670 75 86 98</a></p>
+      <p>700 m² · 5 salas de reuniones · 6 cabinas telefónicas · Salón de eventos · Cocina equipada</p>
+      <p>Horario: Lunes a Viernes 07:30–20:00</p>
+
+      <h2>Planes y Precios</h2>
+      <ul>
+        <li><strong>Day Pass:</strong> 20 €/día — Mesa libre, Wi-Fi, café y té</li>
+        <li><strong>Weekly Pass:</strong> 80 €/semana — Mesa libre 5 días, 1h sala de reuniones</li>
+        <li><strong>10h Flex:</strong> 59 €/mes — 10 horas/semana, hot desk</li>
+        <li><strong>20h Flex:</strong> 99 €/mes — 20 horas/semana, hot desk</li>
+        <li><strong>Hot Desk:</strong> 169 €/mes — Acceso ilimitado 24/7, cualquier mesa</li>
+        <li><strong>Fix Desk:</strong> 239 €/mes — Mesa dedicada con tu nombre, taquilla personal</li>
+        <li><strong>Meeting Room:</strong> 8 €/hora — De 2 a 10 personas, pizarra y pantalla</li>
+        <li><strong>Virtual Office:</strong> 39 €/mes — Dirección fiscal, gestión de correo y paquetes</li>
+      </ul>
+
+      <h2>Office as a Service</h2>
+      <p>Oficina privada llave en mano en València. Buscamos, diseñamos, equipamos y gestionamos tu espacio. Sin inversión inicial, sin contrato de alquiler a largo plazo. Propuesta en 48 horas.</p>
+
+      <h2>Preguntas Frecuentes</h2>
+      <dl>
+        <dt>¿Puedo probar el espacio antes de registrarme?</dt>
+        <dd>Sí. Reserva un Day Pass y ven a trabajar un día, o escríbenos y te damos una visita guiada.</dd>
+        <dt>¿Qué ubicación debo elegir?</dt>
+        <dd>Los planes Hot Desk, Fix Desk y 10h Flex funcionan en ambas ubicaciones. Ruzafa es más creativo y tranquilo; Puerta del Mar es más grande y luminoso.</dd>
+        <dt>¿Tienen oficinas privadas?</dt>
+        <dd>Sí — oficinas privadas para 2–6 personas en Puerta del Mar. Escríbenos por email.</dd>
+        <dt>¿Puedo obtener una dirección fiscal?</dt>
+        <dd>Sí. El plan Virtual Office incluye dirección en València, gestión de correo y paquetes, y 4 pases de día al año.</dd>
+        <dt>¿Tienen eventos?</dt>
+        <dd>Cada semana: Beer Day, Pizza Friday, Happy Hour, networking de startups y más. Comunidad internacional.</dd>
+        <dt>¿Puedo llevar a mi perro?</dt>
+        <dd>Sí en Ruzafa, no en Puerta del Mar.</dd>
+      </dl>
+
+      <h2>Contacto</h2>
+      <p>Email: <a href="mailto:info@co-workup.com">info@co-workup.com</a></p>
+      <p>Ruzafa: <a href="tel:+34627653141">+34 627 65 31 41</a> · Puerta del Mar: <a href="tel:+34670758698">+34 670 75 86 98</a></p>
+    </div>
+  </noscript>
 </body>
 </html>
