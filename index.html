@@ -19,6 +19,12 @@
   /* ============================================================
      DATA
      ============================================================ */
+  const HUBSPOT = {
+    portalId: "8650054",
+    contactFormId: "e5f32e94-ecc1-471d-a867-6c34612dc4bb",
+    officeFormId: "db720c3a-641f-4d61-a384-e42afad4d0b3",
+  };
+
   const IMG = {
     cwk1: "assets/cwk-1.jpg",
     cwk2: "assets/cwk-2.jpg",
@@ -961,32 +967,80 @@
       });
     });
 
+    // HubSpot submit helper
+    function submitToHubSpot(formGuid, fields) {
+      return fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT.portalId}/${formGuid}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields,
+            context: { pageUri: window.location.href, pageName: document.title },
+          }),
+        }
+      );
+    }
+
     // Contact form
     const form = document.getElementById("contact-form");
     if (form) {
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        form.closest(".contact-form-card").innerHTML = `
-          ${eyebrow("Book a tour or ask anything")}
-          <div style="margin-top:24px;padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
-            <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. Thanks!</h3>
-            <p style="margin:0;color:var(--c-ink-soft)">We usually reply within a few hours. Check your inbox (and maybe spam, just in case).</p>
-          </div>
-        `;
+        const btn = form.querySelector("button[type=submit]");
+        btn.disabled = true;
+        btn.innerHTML = "Sending…";
+        try {
+          await submitToHubSpot(HUBSPOT.contactFormId, [
+            { name: "firstname", value: document.getElementById("name").value },
+            { name: "email", value: document.getElementById("email").value },
+            { name: "location", value: document.getElementById("loc").value },
+            { name: "interest", value: document.getElementById("topic").value },
+            { name: "message", value: document.getElementById("msg").value },
+          ]);
+          form.closest(".contact-form-card").innerHTML = `
+            ${eyebrow("Book a tour or ask anything")}
+            <div style="margin-top:24px;padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. Thanks!</h3>
+              <p style="margin:0;color:var(--c-ink-soft)">We usually reply within a few hours. Check your inbox (and maybe spam, just in case).</p>
+            </div>
+          `;
+        } catch {
+          btn.disabled = false;
+          btn.innerHTML = 'Send message <span class="btn-arrow">→</span>';
+          alert("Something went wrong. Please try again or email us directly.");
+        }
       });
     }
 
     // Office form
     const officeForm = document.getElementById("office-form");
     if (officeForm) {
-      officeForm.addEventListener("submit", (e) => {
+      officeForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        officeForm.closest(".contact-form-card").innerHTML = `
-          <div style="padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
-            <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. We'll be in touch!</h3>
-            <p style="margin:0;color:var(--c-ink-soft)">Expect a proposal in your inbox within 48 hours. We'll reach out by phone if we need any clarification.</p>
-          </div>
-        `;
+        const btn = officeForm.querySelector("button[type=submit]");
+        btn.disabled = true;
+        btn.innerHTML = "Sending…";
+        try {
+          await submitToHubSpot(HUBSPOT.officeFormId, [
+            { name: "company", value: document.getElementById("of-company").value },
+            { name: "firstname", value: document.getElementById("of-name").value },
+            { name: "email", value: document.getElementById("of-email").value },
+            { name: "phone", value: document.getElementById("of-phone").value },
+            { name: "number_of_desks", value: document.getElementById("of-desks").value },
+            { name: "timeline", value: document.getElementById("of-timeline").value },
+          ]);
+          officeForm.closest(".contact-form-card").innerHTML = `
+            <div style="padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
+              <h3 style="font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-0.025em;margin:0 0 8px">Got it. We'll be in touch!</h3>
+              <p style="margin:0;color:var(--c-ink-soft)">Expect a proposal in your inbox within 48 hours. We'll reach out by phone if we need any clarification.</p>
+            </div>
+          `;
+        } catch {
+          btn.disabled = false;
+          btn.innerHTML = 'Get a proposal <span class="btn-arrow">→</span>';
+          alert("Something went wrong. Please try again or email us directly.");
+        }
       });
     }
 
