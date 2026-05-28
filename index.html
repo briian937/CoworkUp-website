@@ -570,6 +570,7 @@
           <ul>
             <li><a href="#/office">Office as a Service</a></li>
             <li><a href="#/contact">Contact</a></li>
+            <li><a href="#/terms">Terms & Conditions</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1260,6 +1261,76 @@
     </main>`;
   }
 
+  // TERMS AND CONDITIONS
+  function renderTerms() {
+    return `<main>
+      <section class="container page-intro">
+        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Terms & Conditions</span></div>
+        <h1>Terms & <em>Conditions.</em></h1>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container" style="max-width:780px">
+          <div class="legal-content">
+            <p class="lede">This document sets out the terms and conditions under which Cowork Up members access and use our coworking space services. By joining Cowork Up, you agree to abide by the following terms and conditions to ensure harmonious coexistence and a productive working environment.</p>
+
+            <h2>1. Use of the Space</h2>
+            <ul>
+              <li>Members agree to use the Cowork Up space in a respectful and professional manner.</li>
+              <li>The use of facilities and services is limited to business and professional activities.</li>
+            </ul>
+
+            <h2>2. Respect for the Community</h2>
+            <ul>
+              <li>Members are expected to respect their colleagues and maintain a positive working environment.</li>
+              <li>Inappropriate behaviour, harassment or discrimination will not be tolerated.</li>
+              <li>Members are expected to maintain an appropriate noise level so as not to disturb others.</li>
+            </ul>
+
+            <h2>3. Operating Hours</h2>
+            <ul>
+              <li>Members must respect the operating hours established by Cowork Up.</li>
+              <li>Access to the space outside of normal hours requires prior authorisation.</li>
+            </ul>
+
+            <h2>4. Payment of Fees</h2>
+            <ul>
+              <li>Members agree to make membership payments on time.</li>
+              <li>Late payments may result in the suspension of access to the space.</li>
+            </ul>
+
+            <h2>5. Care of the Facilities</h2>
+            <ul>
+              <li>Members are responsible for keeping their workspace clean and tidy.</li>
+              <li>Any damage to the facilities must be reported immediately to the management.</li>
+              <li>Smoking, vaping or any similar activity is strictly prohibited inside all Cowork Up premises, including enclosed spaces and common areas. This prohibition extends to all forms of tobacco, electronic smoking products and similar substances.</li>
+            </ul>
+
+            <h2>6. Responsible Use of Resources</h2>
+            <ul>
+              <li>Members are expected to use shared resources (printers, internet, etc.) efficiently and responsibly.</li>
+              <li>Abuse of these resources may result in disciplinary action.</li>
+            </ul>
+
+            <h2>7. Compliance with Regulations</h2>
+            <ul>
+              <li>Members must comply with all applicable laws and regulations while on Cowork Up premises.</li>
+              <li>Any illegal activity will result in the immediate termination of the contract.</li>
+            </ul>
+
+            <h2>8. Termination of Contract</h2>
+            <ul>
+              <li>Cowork Up reserves the right to unilaterally terminate the contract in the event of a breach of any of these terms and conditions, after 3 warnings or reprimands sent by email. Upon receiving these 3 warnings, the contract is terminated within 48 hours.</li>
+              <li>Termination may be carried out without prior notice in cases of serious violation.</li>
+            </ul>
+
+            <p style="margin-top:40px;color:var(--c-muted)">By joining Cowork Up, you agree to comply with these terms and conditions. Violation of these terms may result in the termination of the contract and the loss of membership privileges.</p>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
   /* ============================================================
      ROUTER
      ============================================================ */
@@ -1274,6 +1345,7 @@
     if (route === "/meeting-rooms") return "rooms";
     if (route === "/office") return "office";
     if (route === "/contact") return "contact";
+    if (route === "/terms") return "terms";
     return "home";
   }
 
@@ -1284,6 +1356,7 @@
     if (route === "/meeting-rooms") return renderMeetingRooms();
     if (route === "/office") return renderOffice();
     if (route === "/contact") return renderContact();
+    if (route === "/terms") return renderTerms();
     return renderHome();
   }
 
@@ -1311,6 +1384,10 @@
     contact: {
       title: "Contacto — Cowork Up València | Reserva tu visita",
       description: "Contacta con Cowork Up. Ruzafa: +34 627 65 31 41. Puerta del Mar: +34 670 75 86 98. info@co-workup.com. Reserva una visita gratuita.",
+    },
+    terms: {
+      title: "Terms & Conditions — Cowork Up València",
+      description: "Terms and conditions for Cowork Up members. Rules of use, operating hours, payment terms, facility care, and contract termination policies.",
     },
   };
 
