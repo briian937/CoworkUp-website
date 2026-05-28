@@ -297,6 +297,7 @@
       directions: "Two minutes from the Russafa metro (line 1). Quiet residential street — look for the yellow door with the small brass plate.",
       coords: "39.46° N · 0.37° W",
       maps: "https://www.google.com/maps/place/%E2%80%8D+Cowork+Up+Ruzafa/@39.452672,-0.3670016,14z/data=!4m6!3m5!1s0xd604945c3c9bcdf:0x6b091e755b7ee233!8m2!3d39.4628028!4d-0.3727808!16s%2Fg%2F11qnd3_jc_",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.5!2d-0.3749!3d39.4628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604945c3c9bcdf%3A0x6b091e755b7ee233!2sCowork%20Up%20Ruzafa!5e0!3m2!1ses!2ses!4v1",
     },
     "puerta-del-mar": {
       slug: "puerta-del-mar",
@@ -317,6 +318,7 @@
       directions: "Three minutes from Colón metro (lines 3, 5, 7, 9). Right on the Carrer de la Pau axis. Look for the carved stone façade and the porter's lodge.",
       coords: "39.47° N · 0.37° W",
       maps: "https://www.google.com/maps/place/%E2%80%8D+Cowork+Up+Puerta+del+Mar/@39.4628028,-0.3753557,17z/data=!3m1!5s0xd604f4a58bd201f:0x333f82a0af1eb095!4m6!3m5!1s0xd6049ef1a6d87d9:0x83154ea36f300dfa!8m2!3d39.4726565!4d-0.3676707!16s%2Fg%2F11kqryfhd8",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.5!2d-0.3698!3d39.4727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6049ef1a6d87d9%3A0x83154ea36f300dfa!2sCowork%20Up%20Puerta%20del%20Mar!5e0!3m2!1ses!2ses!4v1",
     },
   };
 
@@ -885,29 +887,7 @@
               </div>
             </div>
             <div class="faux-map">
-              <svg width="100%" height="100%" viewBox="0 0 600 750" preserveAspectRatio="none" style="position:absolute;inset:0" aria-hidden="true">
-                <rect width="600" height="750" fill="#FAFAF8"/>
-                <g stroke="#0E0E0E" stroke-opacity="0.06" stroke-width="1">
-                  ${Array.from({length:20}).map((_,i) => `<line x1="0" x2="600" y1="${i*40+20}" y2="${i*40+20}"/>`).join('')}
-                  ${Array.from({length:16}).map((_,i) => `<line x1="${i*40+20}" x2="${i*40+20}" y1="0" y2="750"/>`).join('')}
-                </g>
-                <g stroke="#0E0E0E" stroke-opacity="0.18" stroke-width="3" fill="none">
-                  <line x1="0" y1="320" x2="600" y2="300"/>
-                  <line x1="0" y1="480" x2="600" y2="500"/>
-                  <line x1="140" y1="0" x2="200" y2="750"/>
-                  <line x1="420" y1="0" x2="480" y2="750"/>
-                  <path d="M0,580 C 200,560 400,610 600,580"/>
-                </g>
-                <g stroke="#0E0E0E" stroke-opacity="0.08" stroke-width="1" fill="#0E0E0E" fill-opacity="0.03">
-                  <rect x="220" y="340" width="80" height="60"/>
-                  <rect x="320" y="340" width="80" height="60"/>
-                  <rect x="220" y="420" width="80" height="40"/>
-                  <rect x="320" y="420" width="80" height="40"/>
-                </g>
-              </svg>
-              <div style="position:absolute;left:44%;top:44%;transform:translate(-50%,-100%)">
-                <div style="width:48px;height:48px;background:var(--c-accent);border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(0,0,0,0.25);border:3px solid white">${icon("pin", 22)}</div>
-              </div>
+              <iframe src="${s.mapEmbed}" width="100%" height="100%" style="position:absolute;inset:0;border:none" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
               <div class="faux-map-label">${s.address}</div>
               <div class="faux-map-coords">${s.coords}</div>
             </div>
