@@ -334,14 +334,22 @@
   ];
 
   const SPACE_PLANS = [
-    { name: "Half-Day Pass", tag: "Drop in", price: "15", per: "/ day", vat: true, features: ["Half-day access", "08:30–14:00 or 15:00–20:30"], cta: "Book Now" },
-    { name: "Day Pass", tag: "Drop in", price: "22", per: "/ day", vat: true, features: ["Full-day unlimited access", "Any open desk"], cta: "Book Now" },
-    { name: "Weekly Pass", tag: "Try a week", price: "85", per: "/ week", vat: true, features: ["7 days of unlimited access", "Any open desk"], cta: "Book Now" },
-    { name: "10h Flex", tag: "Afternoons", price: "75", per: "/ mo", vat: true, features: ["10 h/week", "Afternoons only · 15:00–20:30", "Meeting room discount"], cta: "Book Now" },
-    { name: "Unlimited Afternoons", tag: "Afternoons", price: "100", per: "/ mo", vat: true, features: ["Unlimited access from 14:00", "Hot desk", "Meeting room discount"], cta: "Book Now" },
-    { name: "20h Flex", tag: "Part-time", price: "130", per: "/ mo", vat: true, features: ["20 h/week", "Hot desk", "1 h/week meeting room included", "Meeting room discount"], cta: "Book Now" },
-    { name: "Hot Desk", tag: "Full-time", price: "175", per: "/ mo", vat: true, badge: "Popular", featured: true, features: ["Unlimited access", "Hot desk", "2 h/week meeting room included", "Meeting room discount"], cta: "Book Now" },
-    { name: "Fix Desk", tag: "Your own", price: "205", per: "/ mo", vat: true, features: ["Unlimited access", "Dedicated desk", "3 h/week meeting room included", "Meeting room discount"], cta: "Book Now" },
+    { name: "Half-Day Pass", tag: "Drop in", price: "15", per: "/ day", vat: true, features: ["Half-day access", "08:30–14:00 or 15:00–20:30"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/bJe14mcBe5WU0E43qGgIo1o", "puerta-del-mar": "https://buy.stripe.com/8x2cN63k6f1jaTV1cL2Ry1m" } },
+    { name: "Day Pass", tag: "Drop in", price: "22", per: "/ day", vat: true, features: ["Full-day unlimited access", "Any open desk"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/bJe4gy7gUfxu1I8aT8gIo1n", "puerta-del-mar": "https://buy.stripe.com/6oU14o8Eq3iBe677B92Ry1n" } },
+    { name: "Weekly Pass", tag: "Try a week", price: "85", per: "/ week", vat: true, features: ["7 days of unlimited access", "Any open desk"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/4gM28q7gUbhe86w8L0gIo1m", "puerta-del-mar": "https://buy.stripe.com/bIYaIo9hn6nGg6ceVn" } },
+    { name: "10h Flex", tag: "Afternoons", price: "75", per: "/ mo", vat: true, features: ["10 h/week", "Afternoons only · 15:00–20:30", "Meeting room discount"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/bIY17x7bO7FabT2cNS", "puerta-del-mar": "https://buy.stripe.com/bIY6s88dj6nGaLS9Bi" } },
+    { name: "Unlimited Afternoons", tag: "Afternoons", price: "100", per: "/ mo", vat: true, features: ["Unlimited access from 14:00", "Hot desk", "Meeting room discount"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/aEU9E37bO5x2aOYaFL", "puerta-del-mar": "https://buy.stripe.com/4gw03K2SZ5jC7zG9Bh" } },
+    { name: "20h Flex", tag: "Part-time", price: "130", per: "/ mo", vat: true, features: ["20 h/week", "Hot desk", "1 h/week meeting room included", "Meeting room discount"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/28ocQf1Ru9Ni7CM8xA", "puerta-del-mar": "https://buy.stripe.com/6oEeYEbpvbI04nu00J" } },
+    { name: "Hot Desk", tag: "Full-time", price: "175", per: "/ mo", vat: true, badge: "Popular", featured: true, features: ["Unlimited access", "Hot desk", "2 h/week meeting room included", "Meeting room discount"], cta: "Book Now",
+      urls: { ruzafa: "https://buy.stripe.com/8x2aEW6cQ8529aA1iygIo1c", "puerta-del-mar": "https://buy.stripe.com/dR67wcctz7rK4nu9Bk" } },
+    { name: "Fix Desk", tag: "Your own", price: "205", per: "/ mo", vat: true, features: ["Unlimited access", "Dedicated desk", "3 h/week meeting room included", "Meeting room discount"],
+      urls: { ruzafa: "https://share.hsforms.com/1P3WBWM5SSFWb12_k-fSkpA55efa", "puerta-del-mar": "https://buy.stripe.com/28o8Ag65b8vO6vC7td" } },
   ];
 
   const MEETING_ROOMS = [
@@ -477,12 +485,16 @@
   }
 
   function planCard(p) {
+    const href = p.url || "#/contact";
+    const isExternal = p.url && !p.url.startsWith("#");
+    const target = isExternal ? ' target="_blank" rel="noopener"' : '';
+    const cta = p.cta || "Book Now";
     return `<div class="plan${p.featured ? ' plan--featured' : ''}">
       <div class="plan-tag"><span>${p.tag}</span>${p.badge ? `<span class="badge">${p.badge}</span>` : ''}</div>
       <h3 class="plan-name">${p.name}</h3>
       <div class="plan-price"><span class="amt">€${p.price}</span><span class="per">${p.per}</span>${p.vat ? '<span class="per"> + IVA</span>' : ''}</div>
       <ul class="plan-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-      <a href="#/contact" class="btn ${p.featured ? 'btn--accent' : 'btn--primary'}">${p.cta}<span class="btn-arrow">→</span></a>
+      <a href="${href}"${target} class="btn ${p.featured ? 'btn--accent' : 'btn--primary'}">${cta}<span class="btn-arrow">→</span></a>
     </div>`;
   }
 
@@ -847,7 +859,11 @@
             <h2 class="section-title">Plans at ${s.short}.<br/><em>Cancel any month.</em></h2>
             <p class="lede">All prices + IVA. Memberships work across both locations. No setup fees.</p>
           </div>
-          <div class="plans-grid">${SPACE_PLANS.map(planCard).join('')}</div>
+          <div class="plans-grid">${SPACE_PLANS.map(p => {
+            const url = p.urls?.[slug];
+            const isWaitlist = url && url.includes("hsforms.com");
+            return planCard({ ...p, url, cta: isWaitlist ? "Join Waitlist" : p.cta });
+          }).join('')}</div>
         </div>
       </section>
 
