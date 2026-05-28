@@ -1237,6 +1237,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: clamp(20px, 2vw, 28px);
 }
+.rooms-grid--center {
+  max-width: 780px;
+  margin-inline: auto;
+}
 .room-card {
   background: var(--c-paper);
   border: var(--border);

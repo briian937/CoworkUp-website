@@ -267,6 +267,11 @@
     gal2: "assets/meeting_room_ruzafa.jpg",
     gal3: "assets/space-ruzafa-4.jpg",
     gal4: "assets/space-puerta-3.jpg",
+    salaDiscovery: "assets/sala_discovery_ruzafa.jpg",
+    salaThinking: "assets/sala_thinking_ruzafa.jpg",
+    salaAltea: "assets/sala_altea_puerta.jpg",
+    salaDenia: "assets/sala_denia_puerta.jpg",
+    salaCalpe: "assets/sala_calpe_puerta.jpg",
   };
 
   const SPACES = {
@@ -338,7 +343,7 @@
       location: "Ruzafa",
       capacity: "4",
       price: "20",
-      img: IMG.gal2,
+      img: IMG.salaDiscovery,
       whatsapp: "34627653141",
       desc: "Intimate room for focused work sessions, client calls, and small team huddles. Whiteboard, screen, and natural light.",
     },
@@ -347,7 +352,7 @@
       location: "Ruzafa",
       capacity: "6",
       price: "25",
-      img: IMG.ruzafa3,
+      img: IMG.salaThinking,
       whatsapp: "34627653141",
       desc: "Our larger Ruzafa room — ideal for workshops, brainstorming sessions, and team meetings. Whiteboard, screen, and coffee included.",
     },
@@ -356,7 +361,7 @@
       location: "Puerta del Mar",
       capacity: "4–6",
       price: "20",
-      img: IMG.puerta2,
+      img: IMG.salaAltea,
       whatsapp: "34670758698",
       desc: "Bright, classical room with period balcony doors. Perfect for pitches, interviews, and focused group work.",
     },
@@ -365,7 +370,7 @@
       location: "Puerta del Mar",
       capacity: "6–8",
       price: "25",
-      img: IMG.puerta3,
+      img: IMG.salaDenia,
       whatsapp: "34670758698",
       desc: "The largest meeting room — five-meter ceilings, marble floor, and a long boardroom table. Ideal for board meetings and workshops.",
     },
@@ -374,7 +379,7 @@
       location: "Puerta del Mar",
       capacity: "4",
       price: "20",
-      img: IMG.puerta4,
+      img: IMG.salaCalpe,
       whatsapp: "34670758698",
       desc: "Compact and quiet. Great for one-on-ones, interviews, and quick video calls when you need a door that closes.",
     },
@@ -968,7 +973,7 @@
                 </div>
               </div>
             </div>
-            <div class="detail-hero-img"><img src="${IMG.gal2}" alt="Meeting room at Cowork Up" loading="eager" /></div>
+            <div class="detail-hero-img"><img src="${IMG.salaDenia}" alt="Meeting room at Cowork Up" loading="eager" /></div>
           </div>
         </div>
       </section>
@@ -980,7 +985,7 @@
             <h2 class="section-title">${ruzafaRooms.length} rooms at <em>Ruzafa.</em></h2>
             <p class="lede">C/ Carlos Cervera 14 · Mon–Fri 08:00–20:30</p>
           </div>
-          <div class="rooms-grid">${ruzafaRooms.map(roomCard).join('')}</div>
+          <div class="rooms-grid rooms-grid--center">${ruzafaRooms.map(roomCard).join('')}</div>
         </div>
       </section>
 
