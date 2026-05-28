@@ -571,6 +571,7 @@
             <li><a href="#/office">Office as a Service</a></li>
             <li><a href="#/contact">Contact</a></li>
             <li><a href="#/terms">Terms & Conditions</a></li>
+            <li><a href="#/cancel">Cancel Subscription</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1261,6 +1262,25 @@
     </main>`;
   }
 
+  // CANCEL SUBSCRIPTION
+  function renderCancel() {
+    return `<main>
+      <section class="container page-intro">
+        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Cancel Subscription</span></div>
+        <h1>Cancel your <em>subscription.</em></h1>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container" style="max-width:780px">
+          <p class="lede" style="margin-bottom:32px">We're sorry to see you go. Please complete the form below to cancel your membership. Once submitted, our team will process your request and confirm via email.</p>
+          <div style="display:flex;justify-content:center">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfj2HA5iwaY9rVa2LGefvfabK14BzMddBsH9wO86VlTIsAUBw/viewform?embedded=true" width="640" height="1839" frameborder="0" marginwidth="0" marginheight="0" style="max-width:100%;border:none;border-radius:var(--r-md)">Loading…</iframe>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
   // TERMS AND CONDITIONS
   function renderTerms() {
     return `<main>
@@ -1346,6 +1366,7 @@
     if (route === "/office") return "office";
     if (route === "/contact") return "contact";
     if (route === "/terms") return "terms";
+    if (route === "/cancel") return "cancel";
     return "home";
   }
 
@@ -1357,6 +1378,7 @@
     if (route === "/office") return renderOffice();
     if (route === "/contact") return renderContact();
     if (route === "/terms") return renderTerms();
+    if (route === "/cancel") return renderCancel();
     return renderHome();
   }
 
@@ -1388,6 +1410,10 @@
     terms: {
       title: "Terms & Conditions — Cowork Up València",
       description: "Terms and conditions for Cowork Up members. Rules of use, operating hours, payment terms, facility care, and contract termination policies.",
+    },
+    cancel: {
+      title: "Cancel Subscription — Cowork Up València",
+      description: "Cancel your Cowork Up membership. Complete the cancellation form to process your subscription termination.",
     },
   };
 
