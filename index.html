@@ -361,12 +361,10 @@
   ];
 
   const EXTRAS = [
-    ["Small meeting room", "2–4 people", "€8 / h"],
-    ["Boardroom", "6–10 people", "€18 / h"],
-    ["Event hall (Puerta del Mar)", "Up to 60 ppl · evenings", "€280 / night"],
-    ["Podcast studio", "Treated room + gear", "€22 / h"],
-    ["Domiciliation", "Business address + mail", "€39 / mo"],
-    ["Guest day pass", "Bring a friend", "€15 / day"],
+    ["Monitor rental · 1 day", "External screen for your desk", "€5 / day"],
+    ["Monitor rental · 1 week", "External screen for your desk", "€15 / week"],
+    ["Monitor rental · 1 month", "External screen for your desk", "€35 / mo"],
+    ["Locker rental", "Personal storage locker", "€10 / mo"],
   ];
 
   /* ============================================================
@@ -471,7 +469,6 @@
       { href: "#/", label: "Home", key: "home" },
       { href: "#/spaces/ruzafa", label: "Ruzafa", key: "ruzafa" },
       { href: "#/spaces/puerta-del-mar", label: "Puerta del Mar", key: "puerta" },
-      { href: "#/pricing", label: "Pricing", key: "pricing" },
       { href: "#/office", label: "Office as a Service", key: "office" },
       { href: "#/contact", label: "Contact", key: "contact" },
     ];
@@ -510,7 +507,6 @@
           <ul>
             <li><a href="#/spaces/ruzafa">Ruzafa</a></li>
             <li><a href="#/spaces/puerta-del-mar">Puerta del Mar</a></li>
-            <li><a href="#/pricing">Pricing</a></li>
             <li><a href="#/contact">Book a tour</a></li>
           </ul>
         </div>
@@ -573,7 +569,7 @@
             </div>
             <div class="hero-ctas">
               <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
-              <a href="#/pricing" class="btn btn--ghost btn--xl">See plans</a>
+              <a href="#/spaces/ruzafa" class="btn btn--ghost btn--xl">See plans</a>
             </div>
           </div>
         </div>
@@ -689,7 +685,7 @@
           <p>Book a free 20-minute tour at either space. Coffee on us. You'll know in five minutes.</p>
           <div class="cta-banner-ctas">
             <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
-            <a href="#/pricing" class="btn btn--ghost btn--xl">See plans</a>
+            <a href="#/spaces/ruzafa" class="btn btn--ghost btn--xl">See plans</a>
           </div>
         </div>
       </section>
@@ -726,7 +722,7 @@
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
                   <a href="#/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
-                  <a href="#/pricing" class="btn btn--ghost btn--lg">See plans</a>
+                  <a class="btn btn--ghost btn--lg" onclick="document.getElementById('space-plans').scrollIntoView({behavior:'smooth'})">See plans</a>
                 </div>
               </div>
             </div>
@@ -780,7 +776,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="space-plans">
         <div class="container">
           <div class="section-head">
             ${eyebrow("Pricing")}
@@ -788,6 +784,25 @@
             <p class="lede">All prices + IVA. Memberships work across both locations. No setup fees.</p>
           </div>
           <div class="plans-grid">${SPACE_PLANS.map(planCard).join('')}</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Extras")}
+            <h2 class="section-title">Add-ons, <em>if you need them.</em></h2>
+          </div>
+          <div class="extras-table">
+            ${EXTRAS.map(([title, desc, price], i) => `<div class="extras-row">
+              <span class="amenity-num">${String(i+1).padStart(2,'0')}</span>
+              <div>
+                <div class="extras-title">${title}</div>
+                <div class="extras-desc">${desc}</div>
+              </div>
+              <div class="extras-price">${price}</div>
+            </div>`).join('')}
+          </div>
         </div>
       </section>
 
@@ -857,65 +872,6 @@
     </main>`;
   }
 
-  // PRICING
-  function renderPricing() {
-    return `<main>
-      <section class="container page-intro">
-        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Pricing</span></div>
-        <h1>Plans you can <em>actually understand.</em></h1>
-      </section>
-
-      <section class="section section--tight">
-        <div class="container">
-          <div class="section-head">
-            ${eyebrow("All plans")}
-            <p class="lede">All plans include fast Wi-Fi, coffee, phone booths and access to events. Memberships work across both Ruzafa and Puerta del Mar. No setup fees. Cancel any month. VAT not included.</p>
-          </div>
-          <div class="plans-grid">${PLANS.map(planCard).join('')}</div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            ${eyebrow("Extras")}
-            <h2 class="section-title">Add-ons, <em>by the hour.</em></h2>
-          </div>
-          <div class="extras-table">
-            ${EXTRAS.map(([title, desc, price], i) => `<div class="extras-row">
-              <span class="amenity-num">${String(i+1).padStart(2,'0')}</span>
-              <div>
-                <div class="extras-title">${title}</div>
-                <div class="extras-desc">${desc}</div>
-              </div>
-              <div class="extras-price">${price}</div>
-            </div>`).join('')}
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            ${eyebrow("Pricing FAQ")}
-            <h2 class="section-title">Stuff people ask <em>before signing.</em></h2>
-          </div>
-          <div class="faq-list">${FAQS.slice(0, 5).map((f, i) => faqItem(f, i)).join('')}</div>
-        </div>
-      </section>
-
-      <section class="cta-banner">
-        <div class="container">
-          <h2 class="cta-headline">Still not sure?<br/><em>Try a day.</em></h2>
-          <p>The Day Pass is €20 and we refund it against your first month if you sign up. Book one, come work, see if you click with the room.</p>
-          <div class="cta-banner-ctas">
-            <a href="#/contact" class="btn btn--primary btn--xl">Book a day pass <span class="btn-arrow">→</span></a>
-          </div>
-        </div>
-      </section>
-    </main>`;
-  }
-
   // OFFICE AS A SERVICE
   function renderOffice() {
     return `<main>
@@ -934,7 +890,7 @@
               <div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
                   <a href="#/office" class="btn btn--primary btn--lg" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
-                  <a href="#/pricing" class="btn btn--ghost btn--lg">See plans</a>
+                  <a href="#/spaces/ruzafa" class="btn btn--ghost btn--lg">See plans</a>
                 </div>
               </div>
             </div>
@@ -1154,7 +1110,6 @@
     if (route === "/" || route === "") return "home";
     if (route === "/spaces/ruzafa") return "ruzafa";
     if (route === "/spaces/puerta-del-mar") return "puerta";
-    if (route === "/pricing") return "pricing";
     if (route === "/office") return "office";
     if (route === "/contact") return "contact";
     return "home";
@@ -1164,7 +1119,6 @@
     if (route === "/" || route === "") return renderHome();
     if (route === "/spaces/ruzafa") return renderSpaceDetail("ruzafa");
     if (route === "/spaces/puerta-del-mar") return renderSpaceDetail("puerta-del-mar");
-    if (route === "/pricing") return renderPricing();
     if (route === "/office") return renderOffice();
     if (route === "/contact") return renderContact();
     return renderHome();
@@ -1182,10 +1136,6 @@
     puerta: {
       title: "Cowork Up Puerta del Mar — Coworking en el centro de València",
       description: "Espacio de coworking en Puerta del Mar, centro de València. 700 m², 5 salas de reuniones, 6 cabinas, salón de eventos. Hot desks desde 169 €/mes.",
-    },
-    pricing: {
-      title: "Precios y Planes — Cowork Up València | Desde 20 €/día",
-      description: "Planes de coworking en València: Day Pass 20 €, Hot Desk 169 €/mes, Fix Desk 239 €/mes, oficina virtual 39 €/mes. Sin permanencia. Ruzafa y Puerta del Mar.",
     },
     office: {
       title: "Office as a Service València — Cowork Up | Tu oficina llave en mano",
