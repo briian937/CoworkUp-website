@@ -332,6 +332,54 @@
     { name: "Fix Desk", tag: "Your own", price: "205", per: "/ mo", vat: true, features: ["Unlimited access", "Dedicated desk", "3 h/week meeting room included", "Meeting room discount"], cta: "Book Now" },
   ];
 
+  const MEETING_ROOMS = [
+    {
+      name: "Sala Discovery",
+      location: "Ruzafa",
+      capacity: "4",
+      price: "20",
+      img: IMG.gal2,
+      whatsapp: "34627653141",
+      desc: "Intimate room for focused work sessions, client calls, and small team huddles. Whiteboard, screen, and natural light.",
+    },
+    {
+      name: "Sala Thinking",
+      location: "Ruzafa",
+      capacity: "6",
+      price: "25",
+      img: IMG.ruzafa3,
+      whatsapp: "34627653141",
+      desc: "Our larger Ruzafa room — ideal for workshops, brainstorming sessions, and team meetings. Whiteboard, screen, and coffee included.",
+    },
+    {
+      name: "Sala Altea",
+      location: "Puerta del Mar",
+      capacity: "4–6",
+      price: "20",
+      img: IMG.puerta2,
+      whatsapp: "34670758698",
+      desc: "Bright, classical room with period balcony doors. Perfect for pitches, interviews, and focused group work.",
+    },
+    {
+      name: "Sala Denia",
+      location: "Puerta del Mar",
+      capacity: "6–8",
+      price: "25",
+      img: IMG.puerta3,
+      whatsapp: "34670758698",
+      desc: "The largest meeting room — five-meter ceilings, marble floor, and a long boardroom table. Ideal for board meetings and workshops.",
+    },
+    {
+      name: "Sala Calpe",
+      location: "Puerta del Mar",
+      capacity: "4",
+      price: "20",
+      img: IMG.puerta4,
+      whatsapp: "34670758698",
+      desc: "Compact and quiet. Great for one-on-ones, interviews, and quick video calls when you need a door that closes.",
+    },
+  ];
+
   const AMENITIES = [
     { icon: "wifi", title: "Symmetrical fiber", desc: "1 Gbps up / down. Backup line. We measure it weekly so you don't have to." },
     { icon: "coffee", title: "Specialty coffee", desc: "Specialty coffee, free fruit every day, and a fully equipped kitchen at both locations." },
@@ -469,6 +517,7 @@
       { href: "#/", label: "Home", key: "home" },
       { href: "#/spaces/ruzafa", label: "Ruzafa", key: "ruzafa" },
       { href: "#/spaces/puerta-del-mar", label: "Puerta del Mar", key: "puerta" },
+      { href: "#/meeting-rooms", label: "Meeting Rooms", key: "rooms" },
       { href: "#/office", label: "Office as a Service", key: "office" },
       { href: "#/contact", label: "Contact", key: "contact" },
     ];
@@ -507,6 +556,7 @@
           <ul>
             <li><a href="#/spaces/ruzafa">Ruzafa</a></li>
             <li><a href="#/spaces/puerta-del-mar">Puerta del Mar</a></li>
+            <li><a href="#/meeting-rooms">Meeting Rooms</a></li>
             <li><a href="#/contact">Book a tour</a></li>
           </ul>
         </div>
@@ -872,6 +922,112 @@
     </main>`;
   }
 
+  // MEETING ROOMS
+  function renderMeetingRooms() {
+    const ruzafaRooms = MEETING_ROOMS.filter(r => r.location === "Ruzafa");
+    const puertaRooms = MEETING_ROOMS.filter(r => r.location === "Puerta del Mar");
+
+    function roomCard(r) {
+      const waLink = `https://wa.me/${r.whatsapp}?text=${encodeURIComponent(`Hi! I'd like to book ${r.name} at Cowork Up ${r.location}.`)}`;
+      return `<div class="room-card">
+        <div class="room-card-img"><img src="${r.img}" alt="${r.name} — ${r.location}" loading="lazy" /></div>
+        <div class="room-card-body">
+          <div class="room-card-head">
+            <h3>${r.name}</h3>
+            <span class="room-card-badge">${r.location}</span>
+          </div>
+          <p class="room-card-desc">${r.desc}</p>
+          <div class="room-card-meta">
+            <span>${icon("meet", 16)} ${r.capacity} people</span>
+            <span class="room-card-price">€${r.price}<span> / hour + IVA</span></span>
+          </div>
+          <a href="${waLink}" target="_blank" rel="noopener" class="btn btn--primary">Request booking <span class="btn-arrow">→</span></a>
+        </div>
+      </div>`;
+    }
+
+    return `<main>
+      <section class="section section--tight">
+        <div class="container">
+          <div class="detail-hero">
+            <div class="detail-hero-text">
+              <div>
+                <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
+                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Meeting Rooms</span>
+                </div>
+                ${eyebrow("Book by the hour")}
+                <h1 style="margin-top:16px">Meeting rooms<br/><em>in central València.</em></h1>
+                <p class="lede" style="margin-top:24px">Five rooms across two locations — from quick huddles to full-day workshops. Whiteboard, screen, coffee, and Wi-Fi included. Book by the hour, no membership required.</p>
+              </div>
+              <div>
+                <div class="detail-key">
+                  <div><b>5</b><span>Rooms</span></div>
+                  <div><b>2–8</b><span>Capacity</span></div>
+                  <div><b>€20</b><span>From / hour</span></div>
+                  <div><b>2</b><span>Locations</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="detail-hero-img"><img src="${IMG.gal2}" alt="Meeting room at Cowork Up" loading="eager" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Ruzafa")}
+            <h2 class="section-title">${ruzafaRooms.length} rooms at <em>Ruzafa.</em></h2>
+            <p class="lede">C/ Carlos Cervera 14 · Mon–Fri 08:00–20:30</p>
+          </div>
+          <div class="rooms-grid">${ruzafaRooms.map(roomCard).join('')}</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("Puerta del Mar")}
+            <h2 class="section-title">${puertaRooms.length} rooms at <em>Puerta del Mar.</em></h2>
+            <p class="lede">C/ Cronista Carreres 10 · Mon–Fri 07:30–20:00</p>
+          </div>
+          <div class="rooms-grid">${puertaRooms.map(roomCard).join('')}</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("What's included")}
+            <h2 class="section-title">Every room comes with <em>everything.</em></h2>
+          </div>
+          <div class="amenities-grid" style="grid-template-columns:repeat(3,1fr)">
+            ${[
+              "Whiteboard", "Screen + HDMI", "Fast Wi-Fi",
+              "Coffee + water", "Air conditioning", "Natural light",
+            ].map((p, i) => `<div class="amenity-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start">
+                <span class="amenity-num">${String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 class="amenity-title" style="font-size:clamp(20px,1.8vw,26px)">${p}</h3>
+            </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-banner">
+        <div class="container">
+          <h2 class="cta-headline">Need a room <em>right now?</em></h2>
+          <p>Send us a WhatsApp and we'll confirm your booking in minutes. No membership required — just show up.</p>
+          <div class="cta-banner-ctas">
+            <a href="https://wa.me/34627653141?text=${encodeURIComponent('Hi! I\'d like to book a meeting room at Cowork Up.')}" target="_blank" rel="noopener" class="btn btn--primary btn--xl">WhatsApp Ruzafa <span class="btn-arrow">→</span></a>
+            <a href="https://wa.me/34670758698?text=${encodeURIComponent('Hi! I\'d like to book a meeting room at Cowork Up.')}" target="_blank" rel="noopener" class="btn btn--ghost btn--xl">WhatsApp Puerta del Mar</a>
+          </div>
+        </div>
+      </section>
+    </main>`;
+  }
+
   // OFFICE AS A SERVICE
   function renderOffice() {
     return `<main>
@@ -1110,6 +1266,7 @@
     if (route === "/" || route === "") return "home";
     if (route === "/spaces/ruzafa") return "ruzafa";
     if (route === "/spaces/puerta-del-mar") return "puerta";
+    if (route === "/meeting-rooms") return "rooms";
     if (route === "/office") return "office";
     if (route === "/contact") return "contact";
     return "home";
@@ -1119,6 +1276,7 @@
     if (route === "/" || route === "") return renderHome();
     if (route === "/spaces/ruzafa") return renderSpaceDetail("ruzafa");
     if (route === "/spaces/puerta-del-mar") return renderSpaceDetail("puerta-del-mar");
+    if (route === "/meeting-rooms") return renderMeetingRooms();
     if (route === "/office") return renderOffice();
     if (route === "/contact") return renderContact();
     return renderHome();
@@ -1136,6 +1294,10 @@
     puerta: {
       title: "Cowork Up Puerta del Mar — Coworking en el centro de València",
       description: "Espacio de coworking en Puerta del Mar, centro de València. 700 m², 5 salas de reuniones, 6 cabinas, salón de eventos. Hot desks desde 169 €/mes.",
+    },
+    rooms: {
+      title: "Salas de Reuniones en València — Cowork Up | Desde €20/hora",
+      description: "5 salas de reuniones en el centro de València. Ruzafa y Puerta del Mar. Desde €20/hora + IVA. Pizarra, pantalla, Wi-Fi y café incluidos. Reserva por WhatsApp.",
     },
     office: {
       title: "Office as a Service València — Cowork Up | Tu oficina llave en mano",
