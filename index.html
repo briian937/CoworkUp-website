@@ -299,7 +299,8 @@
       hero: "assets/space-ruzafa.jpg",
       blurb: "Tucked between cafés, indie galleries and vinyl shops, our Ruzafa house is a plant-heavy second home for designers, founders and makers building something out loud.",
       perks: ["Meeting rooms & phone booths", "Fully equipped kitchen", "Rest areas", "Free fruit", "Specialty coffee", "Pet-friendly"],
-      gallery: [IMG.ruzafa2, IMG.ruzafa3, IMG.ruzafa4, IMG.ruzafa5, IMG.gal3],
+      gallery: [IMG.ruzafa2, IMG.ruzafa3, IMG.ruzafa4, IMG.ruzafa5, IMG.gal3, IMG.ruzafa1, IMG.gal2, IMG.cwk1, IMG.cwk3],
+      galleryCaptions: ["Workspace", "Through the plants", "Desks", "Panoramic", "Open space", "Chill-out", "Meeting room", "Mezzanine", "Main floor"],
       storyTitle: 'The creative house, <em>on a quiet street in Ruzafa.</em>',
       storyP1: "Ruzafa is the design district. Galleries, vinyl shops, vermouth bars, ceramicists. We share a block with our favorite bakery. Members tend to be designers, indie devs, small studios, and freelancers who don't want to work from a kitchen table anymore.",
       storyP2: "500 m² with five phone booths, two meeting rooms, a fully equipped kitchen, rest areas, and specialty coffee. Plus free fruit every day — because we believe good work starts with good fuel.",
@@ -320,7 +321,8 @@
       hero: "assets/space-puerta.jpg",
       blurb: "A 19th-century building with five-meter ceilings, marble floors and floor-to-ceiling balconies. Light pours in all day. The kind of place you bring a client when you want them to say yes.",
       perks: ["Meeting rooms & phone booths", "Fully equipped kitchen", "Rest areas", "Event hall", "Private call booths", "Members lounge"],
-      gallery: [IMG.puerta2, IMG.puerta3, IMG.puerta4, IMG.puerta5, IMG.gal1],
+      gallery: [IMG.puerta2, IMG.puerta3, IMG.puerta4, IMG.puerta5, IMG.gal1, IMG.puerta1, IMG.cwk2, IMG.cwk4, IMG.salaAltea],
+      galleryCaptions: ["Open space", "Mural office", "Staircase", "Kitchen", "Kitchen lounge", "Workspace", "Phone booths", "Entrance", "Meeting room"],
       storyTitle: 'A bright, classical floor, <em>two blocks from the old port.</em>',
       storyP1: "Puerta del Mar is València's classical core — wide avenues, plane trees, the old port a five-minute walk away. The building is from 1898 and has been gently restored: original tile floors, period balcony doors, fast fiber hidden behind plaster moldings.",
       storyP2: "It's our larger location at 700 m², with five meeting rooms, six phone booths, a fully equipped kitchen, rest areas, and an event hall.",
@@ -822,9 +824,9 @@
             ${eyebrow("Inside")}
             <h2 class="section-title">A walk-through, <em>frame by frame.</em></h2>
           </div>
-          ${carouselHTML(s.gallery.slice(0, 3).map((src, i) => ({
+          ${carouselHTML(s.gallery.map((src, i) => ({
             src,
-            caption: ["Lounge", "Hot desks", "Meeting room"][i],
+            caption: s.galleryCaptions?.[i] || "",
           })), "space-" + slug)}
         </div>
       </section>
@@ -832,15 +834,19 @@
       <section class="section">
         <div class="container">
           <div class="section-head">
-            ${eyebrow("What's here")}
-            <h2 class="section-title">All the small things, <em>handled.</em></h2>
+            ${eyebrow("What's included")}
+            <h2 class="section-title">Built for the boring stuff,<br/><em>so you can do</em> the good stuff.</h2>
           </div>
-          <div class="amenities-grid" style="grid-template-columns:repeat(3,1fr)">
-            ${s.perks.map((p, i) => `<div class="amenity-card">
+          <div class="amenities-grid">
+            ${AMENITIES.map((a, i) => `<div class="amenity-card">
               <div style="display:flex;justify-content:space-between;align-items:flex-start">
                 <span class="amenity-num">${String(i + 1).padStart(2, '0')}</span>
+                <span class="amenity-icon">${icon(a.icon, 18)}</span>
               </div>
-              <h3 class="amenity-title" style="font-size:clamp(20px,1.8vw,26px)">${p}</h3>
+              <div>
+                <h3 class="amenity-title">${a.title}</h3>
+                <p class="amenity-desc">${a.desc}</p>
+              </div>
             </div>`).join('')}
           </div>
         </div>
