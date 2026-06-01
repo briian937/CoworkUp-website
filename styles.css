@@ -952,6 +952,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 880px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
+@media (max-width: 560px) {
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+}
 .footer-brand {
   font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 56px);
