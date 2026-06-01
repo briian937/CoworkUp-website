@@ -1240,11 +1240,10 @@
                 </div>
                 <div class="field">
                   <label for="loc">Which space?</label>
-                  <select id="loc">
+                  <select id="loc" required>
                     <option value="" disabled selected>Pick one</option>
-                    <option>Cowork Up Ruzafa</option>
-                    <option>Cowork Up Puerta del Mar</option>
-                    <option>Either / not sure</option>
+                    <option value="Cowork Up | Ruzafa">Cowork Up Ruzafa</option>
+                    <option value="Cowork Up | Puerta del Mar">Cowork Up Puerta del Mar</option>
                   </select>
                 </div>
                 <div class="field">
@@ -1513,6 +1512,7 @@
             { name: "lastname", value: document.getElementById("lname").value },
             { name: "email", value: document.getElementById("email").value },
             { name: "phone", value: document.getElementById("phone").value },
+            { name: "en_que_coworking_estas_interesado_", value: document.getElementById("loc").value },
             { name: "servicios", value: document.getElementById("topic").value },
             { name: "message", value: document.getElementById("msg").value },
           ]);
