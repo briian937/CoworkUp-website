@@ -1151,18 +1151,12 @@
                   <input id="of-phone" type="tel" required placeholder="+34 600 000 000" />
                 </div>
                 <div class="field">
-                  <label for="of-desks">Number of desks</label>
-                  <input id="of-desks" type="number" required min="1" placeholder="10" />
+                  <label for="of-employees">Number of employees</label>
+                  <input id="of-employees" type="number" required min="1" placeholder="10" />
                 </div>
                 <div class="field">
-                  <label for="of-timeline">Timeline</label>
-                  <select id="of-timeline" required>
-                    <option value="" disabled selected>When do you need it?</option>
-                    <option value="immediate">Immediate</option>
-                    <option value="3-6">3–6 months</option>
-                    <option value="6-12">6–12 months</option>
-                    <option value="12+">+12 months</option>
-                  </select>
+                  <label for="of-start">Start date</label>
+                  <input id="of-start" type="date" required />
                 </div>
                 <button type="submit" class="btn btn--primary btn--lg">Get a proposal <span class="btn-arrow">→</span></button>
                 <p class="nav-mono" style="margin-top:4px">We reply within 48 hours. Usually faster.</p>
@@ -1541,12 +1535,12 @@
         btn.innerHTML = "Sending…";
         try {
           await submitToHubSpot(HUBSPOT.officeFormId, [
-            { name: "company", value: document.getElementById("of-company").value },
             { name: "firstname", value: document.getElementById("of-name").value },
             { name: "email", value: document.getElementById("of-email").value },
             { name: "phone", value: document.getElementById("of-phone").value },
-            { name: "number_of_desks", value: document.getElementById("of-desks").value },
-            { name: "timeline", value: document.getElementById("of-timeline").value },
+            { name: "company", value: document.getElementById("of-company").value },
+            { name: "numberofemployees", value: document.getElementById("of-employees").value },
+            { name: "start_date", value: document.getElementById("of-start").value },
           ]);
           officeForm.closest(".contact-form-card").innerHTML = `
             <div style="padding:28px;border-radius:var(--r-md);background:var(--c-accent-soft);border:1px solid #F4E48A">
