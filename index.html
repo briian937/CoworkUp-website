@@ -1470,8 +1470,8 @@
     });
 
     // HubSpot submit helper
-    function submitToHubSpot(formGuid, fields) {
-      return fetch(
+    async function submitToHubSpot(formGuid, fields) {
+      const res = await fetch(
         `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT.portalId}/${formGuid}`,
         {
           method: "POST",
@@ -1482,6 +1482,12 @@
           }),
         }
       );
+      if (!res.ok) {
+        const body = await res.text();
+        console.error("HubSpot error:", res.status, body);
+        throw new Error(`HubSpot ${res.status}`);
+      }
+      return res;
     }
 
     // Contact form
