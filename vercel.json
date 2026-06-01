@@ -1,14 +1,17 @@
 {
   "redirects": [
-    { "source": "/ruzafa", "destination": "/#/spaces/ruzafa", "statusCode": 301 },
-    { "source": "/ruzafa/", "destination": "/#/spaces/ruzafa", "statusCode": 301 },
-    { "source": "/coworking-puerta-del-mar", "destination": "/#/spaces/puerta-del-mar", "statusCode": 301 },
-    { "source": "/coworking-puerta-del-mar/", "destination": "/#/spaces/puerta-del-mar", "statusCode": 301 },
-    { "source": "/cowork-up-reserva-de-salas", "destination": "/#/meeting-rooms", "statusCode": 301 },
-    { "source": "/cowork-up-reserva-de-salas/", "destination": "/#/meeting-rooms", "statusCode": 301 },
-    { "source": "/oficina-virtual", "destination": "/#/virtual-office", "statusCode": 301 },
-    { "source": "/oficina-virtual/", "destination": "/#/virtual-office", "statusCode": 301 },
-    { "source": "/contacto", "destination": "/#/contact", "statusCode": 301 },
-    { "source": "/contacto/", "destination": "/#/contact", "statusCode": 301 }
+    { "source": "/ruzafa", "destination": "/spaces/ruzafa", "statusCode": 301 },
+    { "source": "/ruzafa/", "destination": "/spaces/ruzafa", "statusCode": 301 },
+    { "source": "/coworking-puerta-del-mar", "destination": "/spaces/puerta-del-mar", "statusCode": 301 },
+    { "source": "/coworking-puerta-del-mar/", "destination": "/spaces/puerta-del-mar", "statusCode": 301 },
+    { "source": "/cowork-up-reserva-de-salas", "destination": "/meeting-rooms", "statusCode": 301 },
+    { "source": "/cowork-up-reserva-de-salas/", "destination": "/meeting-rooms", "statusCode": 301 },
+    { "source": "/oficina-virtual", "destination": "/virtual-office", "statusCode": 301 },
+    { "source": "/oficina-virtual/", "destination": "/virtual-office", "statusCode": 301 },
+    { "source": "/contacto", "destination": "/contact", "statusCode": 301 },
+    { "source": "/contacto/", "destination": "/contact", "statusCode": 301 }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

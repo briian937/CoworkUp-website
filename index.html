@@ -63,10 +63,10 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://co-workup.com/#ruzafa",
+    "@id": "https://co-workup.com/spaces/ruzafa",
     "name": "Cowork Up Ruzafa",
     "description": "Espacio de coworking en el barrio de Ruzafa, València. 500 m², 2 salas de reuniones, 5 cabinas telefónicas, cocina equipada, café de especialidad.",
-    "url": "https://co-workup.com/#/spaces/ruzafa",
+    "url": "https://co-workup.com/spaces/ruzafa",
     "telephone": "+34627653141",
     "email": "info@co-workup.com",
     "image": "https://co-workup.com/assets/space-ruzafa.jpg",
@@ -109,10 +109,10 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://co-workup.com/#puerta-del-mar",
+    "@id": "https://co-workup.com/spaces/puerta-del-mar",
     "name": "Cowork Up Puerta del Mar",
     "description": "Espacio de coworking en Puerta del Mar, centro histórico de València. 700 m², 5 salas de reuniones, 6 cabinas telefónicas, salón de eventos, cocina equipada.",
-    "url": "https://co-workup.com/#/spaces/puerta-del-mar",
+    "url": "https://co-workup.com/spaces/puerta-del-mar",
     "telephone": "+34670758698",
     "email": "info@co-workup.com",
     "image": "https://co-workup.com/assets/space-puerta.jpg",
@@ -497,7 +497,7 @@
   }
 
   function planCard(p) {
-    const href = p.url || "#/contact";
+    const href = p.url || "/contact";
     const isExternal = p.url && !p.url.startsWith("#");
     const target = isExternal ? ' target="_blank" rel="noopener"' : '';
     const cta = p.cta || "Book Now";
@@ -553,43 +553,43 @@
     const servicesActive = current === "office" || current === "virtual";
     return `<header class="nav">
       <div class="container nav-row">
-        <a href="#/" class="brand" aria-label="Cowork Up — Home">
+        <a href="/" class="brand" aria-label="Cowork Up — Home">
           <img src="assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
         </a>
         <nav class="nav-links">
-          <a href="#/" class="${current === 'home' ? 'active' : ''}">Home</a>
+          <a href="/" class="${current === 'home' ? 'active' : ''}">Home</a>
           <div class="nav-dropdown">
             <button class="nav-dropdown-trigger ${spacesActive ? 'active' : ''}">Spaces <span class="nav-chevron">▾</span></button>
             <div class="nav-dropdown-menu">
-              <a href="#/spaces/ruzafa" class="${current === 'ruzafa' ? 'active' : ''}">Ruzafa</a>
-              <a href="#/spaces/puerta-del-mar" class="${current === 'puerta' ? 'active' : ''}">Puerta del Mar</a>
+              <a href="/spaces/ruzafa" class="${current === 'ruzafa' ? 'active' : ''}">Ruzafa</a>
+              <a href="/spaces/puerta-del-mar" class="${current === 'puerta' ? 'active' : ''}">Puerta del Mar</a>
             </div>
           </div>
-          <a href="#/meeting-rooms" class="${current === 'rooms' ? 'active' : ''}">Meeting Rooms</a>
+          <a href="/meeting-rooms" class="${current === 'rooms' ? 'active' : ''}">Meeting Rooms</a>
           <div class="nav-dropdown">
             <button class="nav-dropdown-trigger ${servicesActive ? 'active' : ''}">Services <span class="nav-chevron">▾</span></button>
             <div class="nav-dropdown-menu">
-              <a href="#/office" class="${current === 'office' ? 'active' : ''}">Office as a Service</a>
-              <a href="#/virtual-office" class="${current === 'virtual' ? 'active' : ''}">Virtual Office</a>
+              <a href="/office" class="${current === 'office' ? 'active' : ''}">Office as a Service</a>
+              <a href="/virtual-office" class="${current === 'virtual' ? 'active' : ''}">Virtual Office</a>
             </div>
           </div>
-          <a href="#/contact" class="${current === 'contact' ? 'active' : ''}">Contact</a>
+          <a href="/contact" class="${current === 'contact' ? 'active' : ''}">Contact</a>
         </nav>
         <div class="nav-cta">
-          <a href="#/contact" class="btn btn--primary">Book a tour<span class="btn-arrow">→</span></a>
+          <a href="/contact" class="btn btn--primary">Book a tour<span class="btn-arrow">→</span></a>
           <button class="btn menu-toggle" aria-label="Menu">☰</button>
         </div>
       </div>
     </header>
     <div class="mobile-menu">
       <span class="mobile-menu-label">Spaces</span>
-      <a href="#/spaces/ruzafa">Ruzafa</a>
-      <a href="#/spaces/puerta-del-mar">Puerta del Mar</a>
-      <a href="#/meeting-rooms">Meeting Rooms</a>
+      <a href="/spaces/ruzafa">Ruzafa</a>
+      <a href="/spaces/puerta-del-mar">Puerta del Mar</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
       <span class="mobile-menu-label">Services</span>
-      <a href="#/office">Office as a Service</a>
-      <a href="#/virtual-office">Virtual Office</a>
-      <a href="#/contact">Contact</a>
+      <a href="/office">Office as a Service</a>
+      <a href="/virtual-office">Virtual Office</a>
+      <a href="/contact">Contact</a>
     </div>`;
   }
 
@@ -607,20 +607,20 @@
         <div class="footer-col">
           <h4>Spaces</h4>
           <ul>
-            <li><a href="#/spaces/ruzafa">Ruzafa</a></li>
-            <li><a href="#/spaces/puerta-del-mar">Puerta del Mar</a></li>
-            <li><a href="#/meeting-rooms">Meeting Rooms</a></li>
-            <li><a href="#/contact">Book a tour</a></li>
+            <li><a href="/spaces/ruzafa">Ruzafa</a></li>
+            <li><a href="/spaces/puerta-del-mar">Puerta del Mar</a></li>
+            <li><a href="/meeting-rooms">Meeting Rooms</a></li>
+            <li><a href="/contact">Book a tour</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#/office">Office as a Service</a></li>
-            <li><a href="#/virtual-office">Virtual Office</a></li>
-            <li><a href="#/contact">Contact</a></li>
-            <li><a href="#/terms">Terms & Conditions</a></li>
-            <li><a href="#/cancel">Cancel Subscription</a></li>
+            <li><a href="/office">Office as a Service</a></li>
+            <li><a href="/virtual-office">Virtual Office</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms">Terms & Conditions</a></li>
+            <li><a href="/cancel">Cancel Subscription</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -673,8 +673,8 @@
               <span><span class="dot"></span>Weekly Events</span>
             </div>
             <div class="hero-ctas">
-              <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
-              <a href="#/spaces/ruzafa" class="btn btn--ghost btn--xl">See plans</a>
+              <a href="/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
+              <a href="/spaces/ruzafa" class="btn btn--ghost btn--xl">See plans</a>
             </div>
           </div>
         </div>
@@ -692,7 +692,7 @@
           </div>
           <div class="spaces-split">
             ${[SPACES.ruzafa, SPACES["puerta-del-mar"]].map(s => `
-              <a href="#/spaces/${s.slug}" class="space-card">
+              <a href="/spaces/${s.slug}" class="space-card">
                 <img src="${s.hero}" alt="${s.name}" loading="lazy" />
                 <span class="space-cta">${s.short} <span aria-hidden="true">→</span></span>
                 <div class="space-meta-row"><div>
@@ -774,8 +774,8 @@
           <h2 class="cta-headline">Come work where the<br/><em>good ideas</em> live.</h2>
           <p>Book a free 20-minute tour at either space. Coffee on us. You'll know in five minutes.</p>
           <div class="cta-banner-ctas">
-            <a href="#/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
-            <a href="#/spaces/ruzafa" class="btn btn--ghost btn--xl">See plans</a>
+            <a href="/contact" class="btn btn--primary btn--xl">Book a tour <span class="btn-arrow">→</span></a>
+            <a href="/spaces/ruzafa" class="btn btn--ghost btn--xl">See plans</a>
           </div>
         </div>
       </section>
@@ -797,7 +797,7 @@
             <div class="detail-hero-text">
               <div>
                 <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
-                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Spaces</span><span>/</span><span>${s.short}</span>
+                  <a href="/" style="color:var(--c-ink)">Home</a><span>/</span><span>Spaces</span><span>/</span><span>${s.short}</span>
                 </div>
                 ${eyebrow(neighShort + ", València")}
                 <h1 style="margin-top:16px">${s.short}.<br/><em>${s.tagline}</em></h1>
@@ -811,7 +811,7 @@
                   <div><b>${s.hours.split('·')[1]?.trim() || s.hours}</b><span>Hours</span></div>
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-                  <a href="#/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
+                  <a href="/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
                   <a class="btn btn--ghost btn--lg" onclick="document.getElementById('space-plans').scrollIntoView({behavior:'smooth'})">See plans</a>
                 </div>
               </div>
@@ -917,7 +917,7 @@
                 <div><b>${s.hours}</b><span>Hours</span></div>
               </div>
               <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-                <a href="#/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
+                <a href="/contact" class="btn btn--primary btn--lg">Book a tour <span class="btn-arrow">→</span></a>
                 <a href="${s.maps}" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Open in Maps ↗</a>
               </div>
             </div>
@@ -936,7 +936,7 @@
             ${eyebrow("The other space")}
             <h2 class="section-title">Have you seen <em>${other.short}?</em></h2>
           </div>
-          <a href="#/spaces/${other.slug}" class="space-card" style="aspect-ratio:21/9;display:block">
+          <a href="/spaces/${other.slug}" class="space-card" style="aspect-ratio:21/9;display:block">
             <img src="${other.hero}" alt="${other.name}" loading="lazy" />
             <span class="space-cta">${other.short} <span aria-hidden="true">→</span></span>
             <div class="space-meta-row"><div>
@@ -980,7 +980,7 @@
             <div class="detail-hero-text">
               <div>
                 <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
-                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Meeting Rooms</span>
+                  <a href="/" style="color:var(--c-ink)">Home</a><span>/</span><span>Meeting Rooms</span>
                 </div>
                 ${eyebrow("Book by the hour")}
                 <h1 style="margin-top:16px">Meeting rooms<br/><em>in central València.</em></h1>
@@ -1064,7 +1064,7 @@
             <div class="detail-hero-text">
               <div>
                 <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
-                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Office as a Service</span>
+                  <a href="/" style="color:var(--c-ink)">Home</a><span>/</span><span>Office as a Service</span>
                 </div>
                 ${eyebrow("By co-workables")}
                 <h1 style="margin-top:16px">Your office,<br/><em>without the headache.</em></h1>
@@ -1072,8 +1072,8 @@
               </div>
               <div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-                  <a href="#/office" class="btn btn--primary btn--lg" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
-                  <a href="#/spaces/ruzafa" class="btn btn--ghost btn--lg">See plans</a>
+                  <a href="/office" class="btn btn--primary btn--lg" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
+                  <a href="/spaces/ruzafa" class="btn btn--ghost btn--lg">See plans</a>
                 </div>
               </div>
             </div>
@@ -1190,7 +1190,7 @@
           <h2 class="cta-headline">Let us build <em>your office.</em></h2>
           <p>Tell us what you need. We'll come back with a space, a price, and a timeline.</p>
           <div class="cta-banner-ctas">
-            <a href="#/office" class="btn btn--primary btn--xl" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
+            <a href="/office" class="btn btn--primary btn--xl" onclick="setTimeout(()=>document.getElementById('office-form-card').scrollIntoView({behavior:'smooth'}),100)">Get a proposal <span class="btn-arrow">→</span></a>
           </div>
         </div>
       </section>
@@ -1206,7 +1206,7 @@
             <div class="detail-hero-text">
               <div>
                 <div class="crumbs" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px;display:flex;gap:8px">
-                  <a href="#/" style="color:var(--c-ink)">Home</a><span>/</span><span>Virtual Office</span>
+                  <a href="/" style="color:var(--c-ink)">Home</a><span>/</span><span>Virtual Office</span>
                 </div>
                 ${eyebrow("Business address")}
                 <h1 style="margin-top:16px">Virtual office<br/><em>in València, Spain.</em></h1>
@@ -1313,7 +1313,7 @@
   function renderContact() {
     return `<main>
       <section class="container page-intro">
-        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Contact</span></div>
+        <div class="crumbs"><a href="/">Home</a><span>/</span><span>Contact</span></div>
         <h1>Say hola. <em>We answer fast.</em></h1>
       </section>
 
@@ -1400,7 +1400,7 @@
   function renderCancel() {
     return `<main>
       <section class="container page-intro">
-        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Cancel Subscription</span></div>
+        <div class="crumbs"><a href="/">Home</a><span>/</span><span>Cancel Subscription</span></div>
         <h1>Cancel your <em>subscription.</em></h1>
       </section>
 
@@ -1419,7 +1419,7 @@
   function renderTerms() {
     return `<main>
       <section class="container page-intro">
-        <div class="crumbs"><a href="#/">Home</a><span>/</span><span>Terms & Conditions</span></div>
+        <div class="crumbs"><a href="/">Home</a><span>/</span><span>Terms & Conditions</span></div>
         <h1>Terms & <em>Conditions.</em></h1>
       </section>
 
@@ -1489,7 +1489,7 @@
      ROUTER
      ============================================================ */
   function getRoute() {
-    return (window.location.hash || "#/").replace(/^#/, "") || "/";
+    return window.location.pathname || "/";
   }
 
   function routeToKey(route) {
@@ -1559,12 +1559,14 @@
 
   function updateMeta(key) {
     const meta = PAGE_META[key] || PAGE_META.home;
+    const path = key === "home" ? "/" : key === "ruzafa" ? "/spaces/ruzafa" : key === "puerta" ? "/spaces/puerta-del-mar" : "/" + key;
+    const url = "https://co-workup.com" + path;
     document.title = meta.title;
     document.querySelector('meta[name="description"]').setAttribute("content", meta.description);
-    document.querySelector('link[rel="canonical"]').setAttribute("href", "https://co-workup.com/#/" + (key === "home" ? "" : key === "ruzafa" ? "spaces/ruzafa" : key === "puerta" ? "spaces/puerta-del-mar" : key));
+    document.querySelector('link[rel="canonical"]').setAttribute("href", url);
     document.querySelector('meta[property="og:title"]').setAttribute("content", meta.title);
     document.querySelector('meta[property="og:description"]').setAttribute("content", meta.description);
-    document.querySelector('meta[property="og:url"]').setAttribute("content", "https://co-workup.com/#/" + (key === "home" ? "" : key === "ruzafa" ? "spaces/ruzafa" : key === "puerta" ? "spaces/puerta-del-mar" : key));
+    document.querySelector('meta[property="og:url"]').setAttribute("content", url);
     document.querySelector('meta[name="twitter:title"]').setAttribute("content", meta.title);
     document.querySelector('meta[name="twitter:description"]').setAttribute("content", meta.description);
   }
@@ -1780,7 +1782,18 @@
   /* ============================================================
      INIT
      ============================================================ */
-  window.addEventListener("hashchange", mount);
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (!href || !href.startsWith("/") || a.target === "_blank") return;
+    e.preventDefault();
+    if (href !== window.location.pathname) {
+      history.pushState(null, "", href);
+      mount();
+    }
+  });
+  window.addEventListener("popstate", mount);
   mount();
   </script>
 
