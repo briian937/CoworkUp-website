@@ -1220,13 +1220,23 @@
             <div class="contact-form-card">
               ${eyebrow("Book a tour or ask anything")}
               <form class="contact-form" style="margin-top:20px" id="contact-form">
-                <div class="field">
-                  <label for="name">Name</label>
-                  <input id="name" required placeholder="Your name" />
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                  <div class="field">
+                    <label for="fname">First name</label>
+                    <input id="fname" required placeholder="Jane" />
+                  </div>
+                  <div class="field">
+                    <label for="lname">Last name</label>
+                    <input id="lname" required placeholder="Smith" />
+                  </div>
                 </div>
                 <div class="field">
                   <label for="email">Email</label>
                   <input id="email" type="email" required placeholder="hola@…" />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" type="tel" required placeholder="+34 600 000 000" />
                 </div>
                 <div class="field">
                   <label for="loc">Which space?</label>
@@ -1500,10 +1510,11 @@
         btn.innerHTML = "Sending…";
         try {
           await submitToHubSpot(HUBSPOT.contactFormId, [
-            { name: "firstname", value: document.getElementById("name").value },
+            { name: "firstname", value: document.getElementById("fname").value },
+            { name: "lastname", value: document.getElementById("lname").value },
             { name: "email", value: document.getElementById("email").value },
-            { name: "location", value: document.getElementById("loc").value },
-            { name: "interest", value: document.getElementById("topic").value },
+            { name: "phone", value: document.getElementById("phone").value },
+            { name: "servicios", value: document.getElementById("topic").value },
             { name: "message", value: document.getElementById("msg").value },
           ]);
           form.closest(".contact-form-card").innerHTML = `
