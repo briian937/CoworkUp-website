@@ -348,6 +348,7 @@
     { name: "Day Pass", tag: "Drop in", price: "22", per: "/ day", vat: true, features: ["Full-day unlimited access", "Any open desk"], cta: "Book Now",
       urls: { ruzafa: "https://buy.stripe.com/bJe4gy7gUfxu1I8aT8gIo1n", "puerta-del-mar": "https://buy.stripe.com/6oU14o8Eq3iBe677B92Ry1n" } },
     { name: "Weekly Pass", tag: "Try a week", price: "85", per: "/ week", vat: true, features: ["7 days of unlimited access", "Any open desk"], cta: "Book Now",
+      prices: { "puerta-del-mar": "80" },
       urls: { ruzafa: "https://buy.stripe.com/4gM28q7gUbhe86w8L0gIo1m", "puerta-del-mar": "https://buy.stripe.com/bIYaIo9hn6nGg6ceVn" } },
     { name: "10h Flex", tag: "Afternoons", price: "75", per: "/ mo", vat: true, features: ["10 h/week", "Afternoons only · 15:00–20:30", "Meeting room discount"], cta: "Book Now",
       urls: { ruzafa: "https://buy.stripe.com/bIY17x7bO7FabT2cNS", "puerta-del-mar": "https://buy.stripe.com/bIY6s88dj6nGaLS9Bi" } },
@@ -861,8 +862,9 @@
           </div>
           <div class="plans-grid">${SPACE_PLANS.map(p => {
             const url = p.urls?.[slug];
+            const price = p.prices?.[slug] || p.price;
             const isWaitlist = url && url.includes("hsforms.com");
-            return planCard({ ...p, url, cta: isWaitlist ? "Join Waitlist" : p.cta });
+            return planCard({ ...p, url, price, cta: isWaitlist ? "Join Waitlist" : p.cta });
           }).join('')}</div>
         </div>
       </section>
