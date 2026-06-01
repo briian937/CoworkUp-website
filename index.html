@@ -549,22 +549,31 @@
      NAV
      ============================================================ */
   function renderNav(current) {
-    const links = [
-      { href: "#/", label: "Home", key: "home" },
-      { href: "#/spaces/ruzafa", label: "Ruzafa", key: "ruzafa" },
-      { href: "#/spaces/puerta-del-mar", label: "Puerta del Mar", key: "puerta" },
-      { href: "#/meeting-rooms", label: "Meeting Rooms", key: "rooms" },
-      { href: "#/office", label: "Office as a Service", key: "office" },
-      { href: "#/virtual-office", label: "Virtual Office", key: "virtual" },
-      { href: "#/contact", label: "Contact", key: "contact" },
-    ];
+    const spacesActive = current === "ruzafa" || current === "puerta";
+    const servicesActive = current === "office" || current === "virtual";
     return `<header class="nav">
       <div class="container nav-row">
         <a href="#/" class="brand" aria-label="Cowork Up — Home">
           <img src="assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
         </a>
         <nav class="nav-links">
-          ${links.map(l => `<a href="${l.href}" class="${current === l.key ? 'active' : ''}">${l.label}</a>`).join('')}
+          <a href="#/" class="${current === 'home' ? 'active' : ''}">Home</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-trigger ${spacesActive ? 'active' : ''}">Spaces <span class="nav-chevron">▾</span></button>
+            <div class="nav-dropdown-menu">
+              <a href="#/spaces/ruzafa" class="${current === 'ruzafa' ? 'active' : ''}">Ruzafa</a>
+              <a href="#/spaces/puerta-del-mar" class="${current === 'puerta' ? 'active' : ''}">Puerta del Mar</a>
+            </div>
+          </div>
+          <a href="#/meeting-rooms" class="${current === 'rooms' ? 'active' : ''}">Meeting Rooms</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-trigger ${servicesActive ? 'active' : ''}">Services <span class="nav-chevron">▾</span></button>
+            <div class="nav-dropdown-menu">
+              <a href="#/office" class="${current === 'office' ? 'active' : ''}">Office as a Service</a>
+              <a href="#/virtual-office" class="${current === 'virtual' ? 'active' : ''}">Virtual Office</a>
+            </div>
+          </div>
+          <a href="#/contact" class="${current === 'contact' ? 'active' : ''}">Contact</a>
         </nav>
         <div class="nav-cta">
           <a href="#/contact" class="btn btn--primary">Book a tour<span class="btn-arrow">→</span></a>
@@ -573,7 +582,14 @@
       </div>
     </header>
     <div class="mobile-menu">
-      ${links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+      <span class="mobile-menu-label">Spaces</span>
+      <a href="#/spaces/ruzafa">Ruzafa</a>
+      <a href="#/spaces/puerta-del-mar">Puerta del Mar</a>
+      <a href="#/meeting-rooms">Meeting Rooms</a>
+      <span class="mobile-menu-label">Services</span>
+      <a href="#/office">Office as a Service</a>
+      <a href="#/virtual-office">Virtual Office</a>
+      <a href="#/contact">Contact</a>
     </div>`;
   }
 
