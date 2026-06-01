@@ -35,7 +35,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -260,30 +260,30 @@
   };
 
   const IMG = {
-    cwk1: "assets/cwk-1.jpg",
-    cwk2: "assets/cwk-2.jpg",
-    cwk3: "assets/cwk-3.jpg",
-    cwk4: "assets/cwk-4.jpg",
-    heroA: "assets/space-ruzafa-4.jpg",
-    ruzafa1: "assets/space-ruzafa-chillout.jpg",
-    ruzafa2: "assets/space-ruzafa-2.jpg",
-    ruzafa3: "assets/space-ruzafa-3.jpg",
-    ruzafa4: "assets/space-ruzafa-5.jpg",
-    ruzafa5: "assets/space-ruzafa-6.jpg",
-    puerta1: "assets/space-puerta-2.jpg",
-    puerta2: "assets/space-puerta-3.jpg",
-    puerta3: "assets/space-puerta-4.jpg",
-    puerta4: "assets/space-puerta-5.jpg",
-    puerta5: "assets/kitchen-puerta.jpg",
-    gal1: "assets/kitchen_puerta_2.jpg",
-    gal2: "assets/meeting_room_ruzafa.jpg",
-    gal3: "assets/space-ruzafa-4.jpg",
-    gal4: "assets/space-puerta-3.jpg",
-    salaDiscovery: "assets/sala_discovery_ruzafa.jpg",
-    salaThinking: "assets/sala_thinking_ruzafa.jpg",
-    salaAltea: "assets/sala_altea_puerta.jpg",
-    salaDenia: "assets/sala_denia_puerta.jpg",
-    salaCalpe: "assets/sala_calpe_puerta.jpg",
+    cwk1: "/assets/cwk-1.jpg",
+    cwk2: "/assets/cwk-2.jpg",
+    cwk3: "/assets/cwk-3.jpg",
+    cwk4: "/assets/cwk-4.jpg",
+    heroA: "/assets/space-ruzafa-4.jpg",
+    ruzafa1: "/assets/space-ruzafa-chillout.jpg",
+    ruzafa2: "/assets/space-ruzafa-2.jpg",
+    ruzafa3: "/assets/space-ruzafa-3.jpg",
+    ruzafa4: "/assets/space-ruzafa-5.jpg",
+    ruzafa5: "/assets/space-ruzafa-6.jpg",
+    puerta1: "/assets/space-puerta-2.jpg",
+    puerta2: "/assets/space-puerta-3.jpg",
+    puerta3: "/assets/space-puerta-4.jpg",
+    puerta4: "/assets/space-puerta-5.jpg",
+    puerta5: "/assets/kitchen-puerta.jpg",
+    gal1: "/assets/kitchen_puerta_2.jpg",
+    gal2: "/assets/meeting_room_ruzafa.jpg",
+    gal3: "/assets/space-ruzafa-4.jpg",
+    gal4: "/assets/space-puerta-3.jpg",
+    salaDiscovery: "/assets/sala_discovery_ruzafa.jpg",
+    salaThinking: "/assets/sala_thinking_ruzafa.jpg",
+    salaAltea: "/assets/sala_altea_puerta.jpg",
+    salaDenia: "/assets/sala_denia_puerta.jpg",
+    salaCalpe: "/assets/sala_calpe_puerta.jpg",
   };
 
   const SPACES = {
@@ -296,7 +296,7 @@
       neighborhood: "Ruzafa — the design district",
       sqm: "500 m²", meetings: "2", booths: "5",
       hours: "Mon–Fri · 08:00–20:30",
-      hero: "assets/space-ruzafa.jpg",
+      hero: "/assets/space-ruzafa.jpg",
       blurb: "Tucked between cafés, indie galleries and vinyl shops, our Ruzafa house is a plant-heavy second home for designers, founders and makers building something out loud.",
       perks: ["Meeting rooms & phone booths", "Fully equipped kitchen", "Rest areas", "Free fruit", "Specialty coffee", "Pet-friendly"],
       gallery: [IMG.ruzafa2, IMG.ruzafa3, IMG.ruzafa4, IMG.ruzafa5, IMG.gal3, IMG.ruzafa1, IMG.gal2, IMG.cwk1, IMG.cwk3],
@@ -318,7 +318,7 @@
       neighborhood: "Puerta del Mar — the historic core",
       sqm: "700 m²", meetings: "5", booths: "6",
       hours: "Mon–Fri · 07:30–20:00",
-      hero: "assets/space-puerta.jpg",
+      hero: "/assets/space-puerta.jpg",
       blurb: "A 19th-century building with five-meter ceilings, marble floors and floor-to-ceiling balconies. Light pours in all day. The kind of place you bring a client when you want them to say yes.",
       perks: ["Meeting rooms & phone booths", "Fully equipped kitchen", "Rest areas", "Event hall", "Private call booths", "Members lounge"],
       gallery: [IMG.puerta2, IMG.puerta3, IMG.puerta4, IMG.puerta5, IMG.gal1, IMG.puerta1, IMG.cwk2, IMG.cwk4, IMG.salaAltea],
@@ -554,7 +554,7 @@
     return `<header class="nav">
       <div class="container nav-row">
         <a href="/" class="brand" aria-label="Cowork Up — Home">
-          <img src="assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
+          <img src="/assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
         </a>
         <nav class="nav-links">
           <a href="/" class="${current === 'home' ? 'active' : ''}">Home</a>
