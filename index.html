@@ -249,6 +249,20 @@
 <body>
   <div id="root"></div>
 
+  <div id="ruzafa-modal" class="ruzafa-modal" style="display:none">
+    <div class="ruzafa-modal-backdrop"></div>
+    <div class="ruzafa-modal-content">
+      <button class="ruzafa-modal-close" aria-label="Close">&times;</button>
+      <span style="font-size:48px;display:block;text-align:center;margin-bottom:16px">🏗️</span>
+      <h2 style="text-align:center;margin-bottom:8px">Ruzafa is closed for renovations</h2>
+      <p style="text-align:center;color:var(--muted);margin-bottom:24px">Our Ruzafa location is undergoing renovations and will reopen on <strong>August 1st, 2026</strong>. In the meantime, our <strong>Puerta del Mar</strong> coworking space is fully operational with all the same plans and amenities.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+        <a href="/spaces/puerta-del-mar" class="btn btn--primary btn--lg">See plans at Puerta del Mar <span class="btn-arrow">→</span></a>
+        <button class="ruzafa-modal-dismiss" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:8px">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
   /* ============================================================
      DATA
@@ -551,7 +565,12 @@
   function renderNav(current) {
     const spacesActive = current === "ruzafa" || current === "puerta";
     const servicesActive = current === "office" || current === "virtual";
-    return `<header class="nav">
+    return `<div class="ruzafa-banner">
+      <div class="container">
+        <span>🚧</span> <strong>Ruzafa is temporarily closed for renovations during July.</strong> Our Puerta del Mar location remains fully open. <a href="/spaces/puerta-del-mar">See Puerta del Mar →</a>
+      </div>
+    </div>
+    <header class="nav">
       <div class="container nav-row">
         <a href="/" class="brand" aria-label="Cowork Up — Home">
           <img src="/assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
@@ -1782,12 +1801,39 @@
   /* ============================================================
      INIT
      ============================================================ */
+  const RUZAFA_URLS = new Set(SPACE_PLANS.map(p => p.urls?.ruzafa).filter(Boolean));
+  RUZAFA_URLS.add("https://buy.stripe.com/fZu6oG9p28523Qg6CSgIo1e"); // Virtual Office Ruzafa
+
+  function showRuzafaModal() {
+    document.getElementById("ruzafa-modal").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+  function hideRuzafaModal() {
+    document.getElementById("ruzafa-modal").style.display = "none";
+    document.body.style.overflow = "";
+  }
+  document.getElementById("ruzafa-modal").addEventListener("click", (e) => {
+    if (e.target.classList.contains("ruzafa-modal-backdrop") ||
+        e.target.classList.contains("ruzafa-modal-dismiss") ||
+        e.target.classList.contains("ruzafa-modal-close")) {
+      hideRuzafaModal();
+    }
+  });
+
   document.addEventListener("click", (e) => {
     const a = e.target.closest("a[href]");
     if (!a) return;
     const href = a.getAttribute("href");
+
+    if (href && RUZAFA_URLS.has(href)) {
+      e.preventDefault();
+      showRuzafaModal();
+      return;
+    }
+
     if (!href || !href.startsWith("/") || a.target === "_blank") return;
     e.preventDefault();
+    if (document.getElementById("ruzafa-modal").style.display === "flex") hideRuzafaModal();
     if (href !== window.location.pathname) {
       history.pushState(null, "", href);
       mount();
