@@ -565,11 +565,12 @@
   function renderNav(current) {
     const spacesActive = current === "ruzafa" || current === "puerta";
     const servicesActive = current === "office" || current === "virtual";
-    return `<div class="ruzafa-banner">
+    const ruzafaClosed = new Date() < new Date("2026-08-01");
+    return `${ruzafaClosed ? `<div class="ruzafa-banner">
       <div class="container">
         <span>🚧</span> <strong>Ruzafa is temporarily closed for renovations during July.</strong> Our Puerta del Mar location remains fully open. <a href="/spaces/puerta-del-mar">See Puerta del Mar →</a>
       </div>
-    </div>
+    </div>` : ''}
     <header class="nav">
       <div class="container nav-row">
         <a href="/" class="brand" aria-label="Cowork Up — Home">
@@ -1801,8 +1802,9 @@
   /* ============================================================
      INIT
      ============================================================ */
-  const RUZAFA_URLS = new Set(SPACE_PLANS.map(p => p.urls?.ruzafa).filter(Boolean));
-  RUZAFA_URLS.add("https://buy.stripe.com/fZu6oG9p28523Qg6CSgIo1e"); // Virtual Office Ruzafa
+  const RUZAFA_CLOSED = new Date() < new Date("2026-08-01");
+  const RUZAFA_URLS = new Set(RUZAFA_CLOSED ? SPACE_PLANS.map(p => p.urls?.ruzafa).filter(Boolean) : []);
+  if (RUZAFA_CLOSED) RUZAFA_URLS.add("https://buy.stripe.com/fZu6oG9p28523Qg6CSgIo1e");
 
   function showRuzafaModal() {
     document.getElementById("ruzafa-modal").style.display = "flex";
