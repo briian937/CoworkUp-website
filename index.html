@@ -255,7 +255,7 @@
       <button class="ruzafa-modal-close" aria-label="Close">&times;</button>
       <span style="font-size:48px;display:block;text-align:center;margin-bottom:16px">🏗️</span>
       <h2 style="text-align:center;margin-bottom:8px">Ruzafa is closed for renovations</h2>
-      <p style="text-align:center;color:var(--muted);margin-bottom:24px">Our Ruzafa location is undergoing renovations and will reopen on <strong>August 1st, 2026</strong>. In the meantime, our <strong>Puerta del Mar</strong> coworking space is fully operational with all the same plans and amenities.</p>
+      <p style="text-align:center;color:var(--muted);margin-bottom:24px">Our Ruzafa location is undergoing the final phase of renovations and will reopen on <strong>August 10th</strong>. In the meantime, our <strong>Puerta del Mar</strong> coworking space is fully operational with all the same plans and amenities.</p>
       <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
         <a href="/spaces/puerta-del-mar" class="btn btn--primary btn--lg">See plans at Puerta del Mar <span class="btn-arrow">→</span></a>
         <button class="ruzafa-modal-dismiss" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:8px">Close</button>
@@ -565,10 +565,10 @@
   function renderNav(current) {
     const spacesActive = current === "ruzafa" || current === "puerta";
     const servicesActive = current === "office" || current === "virtual";
-    const ruzafaClosed = new Date() < new Date("2026-08-01");
+    const ruzafaClosed = new Date() < new Date("2026-08-07");
     return `${ruzafaClosed ? `<div class="ruzafa-banner">
       <div class="container">
-        <span>🚧</span> <strong>Ruzafa is temporarily closed for renovations during July.</strong> Our Puerta del Mar location remains fully open. <a href="/spaces/puerta-del-mar">See Puerta del Mar →</a>
+        <span>🚧</span> <strong>Ruzafa is closed for renovations until August 10th.</strong> Our Puerta del Mar location remains fully open. <a href="/spaces/puerta-del-mar">See Puerta del Mar →</a>
       </div>
     </div>` : ''}
     <header class="nav">
@@ -1802,7 +1802,7 @@
   /* ============================================================
      INIT
      ============================================================ */
-  const RUZAFA_CLOSED = new Date() < new Date("2026-08-01");
+  const RUZAFA_CLOSED = new Date() < new Date("2026-08-07");
   const RUZAFA_URLS = new Set(RUZAFA_CLOSED ? SPACE_PLANS.map(p => p.urls?.ruzafa).filter(Boolean) : []);
   if (RUZAFA_CLOSED) RUZAFA_URLS.add("https://buy.stripe.com/fZu6oG9p28523Qg6CSgIo1e");
 
