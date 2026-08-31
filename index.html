@@ -1675,7 +1675,7 @@
     if (route === "/cancel") return "cancel";
     if (route === "/about") return "about";
     if (route === "/privacy") return "privacy";
-    return "home";
+    return "notfound";
   }
 
   function renderPage(route) {
@@ -1690,7 +1690,26 @@
     if (route === "/cancel") return renderCancel();
     if (route === "/about") return renderAbout();
     if (route === "/privacy") return renderPrivacy();
-    return renderHome();
+    return render404();
+  }
+
+  function render404() {
+    return `<main>
+      <section class="section hero-detail">
+        <div class="container" style="text-align:center;padding:80px 20px">
+          <h1 style="font-size:72px;margin-bottom:8px">404</h1>
+          <p class="lede">This page doesn't exist.</p>
+          <p style="margin-top:24px">You might be looking for one of these:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px">
+            <a href="/" class="btn btn--ghost">Home</a>
+            <a href="/spaces/ruzafa" class="btn btn--ghost">Ruzafa</a>
+            <a href="/spaces/puerta-del-mar" class="btn btn--ghost">Puerta del Mar</a>
+            <a href="/meeting-rooms" class="btn btn--ghost">Meeting Rooms</a>
+            <a href="/contact" class="btn btn--ghost">Contact</a>
+          </div>
+        </div>
+      </section>
+    </main>`;
   }
 
   const PAGE_META = {

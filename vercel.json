@@ -13,19 +13,10 @@
   ],
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/((?!api/).*)",
       "has": [{ "type": "header", "key": "accept", "value": "(?:.*text/markdown.*)" }],
-      "destination": "/api/markdown?path=/:path*"
+      "destination": "/api/markdown?path=/$1"
     },
-    { "source": "/spaces/ruzafa", "destination": "/index.html" },
-    { "source": "/spaces/puerta-del-mar", "destination": "/index.html" },
-    { "source": "/meeting-rooms", "destination": "/index.html" },
-    { "source": "/office", "destination": "/index.html" },
-    { "source": "/virtual-office", "destination": "/index.html" },
-    { "source": "/contact", "destination": "/index.html" },
-    { "source": "/about", "destination": "/index.html" },
-    { "source": "/privacy", "destination": "/index.html" },
-    { "source": "/terms", "destination": "/index.html" },
-    { "source": "/cancel", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
