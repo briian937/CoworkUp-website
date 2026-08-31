@@ -1554,11 +1554,11 @@
               { n: "04", t: "Office as a Service", d: "Turnkey private offices — we find, design, equip, and manage your workspace so you focus on your business." },
               { n: "05", t: "Community events", d: "Beer Day, Pizza Friday, Happy Hour, startup networking, and more. Every week, all year." },
               { n: "06", t: "International network", d: "Members from over 30 countries. A place to meet founders, designers, and operators from around the world." },
-            ].map(p => \`<div class="amenity-card">
-              <span class="amenity-num">— \${p.n}</span>
-              <h3 class="amenity-title">\${p.t}</h3>
-              <p class="amenity-desc">\${p.d}</p>
-            </div>\`).join('')}
+            ].map(p => `<div class="amenity-card">
+              <span class="amenity-num">— ${p.n}</span>
+              <h3 class="amenity-title">${p.t}</h3>
+              <p class="amenity-desc">${p.d}</p>
+            </div>`).join('')}
           </div>
         </div>
       </section>
