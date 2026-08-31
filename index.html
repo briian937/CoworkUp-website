@@ -639,7 +639,9 @@
             <li><a href="/office">Office as a Service</a></li>
             <li><a href="/virtual-office">Virtual Office</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="/terms">Terms & Conditions</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
             <li><a href="/cancel">Cancel Subscription</a></li>
           </ul>
         </div>
@@ -1506,6 +1508,155 @@
   }
 
   /* ============================================================
+     ABOUT
+     ============================================================ */
+  function renderAbout() {
+    return `<main>
+      <section class="section hero-detail">
+        <div class="container detail-hero">
+          <div class="detail-hero-text">
+            <div>
+              ${eyebrow("Our story")}
+              <h1 style="margin-top:16px">About <em>Cowork Up.</em></h1>
+              <p class="lede" style="margin-top:24px">A social and international coworking community in the heart of València, Spain. Two locations, flexible plans, and a vibrant community of founders, freelancers, and remote workers from around the world.</p>
+            </div>
+          </div>
+          <div class="detail-hero-img"><img src="${IMG.cwk1}" alt="Cowork Up community" loading="eager" /></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="two-col">
+            <div>
+              ${eyebrow("Since 2020")}
+              <h2 style="margin-top:20px">Built for people who want <em>more than a desk.</em></h2>
+            </div>
+            <div>
+              <p>Cowork Up was founded in 2020 with a simple idea: great work happens in great communities. We set out to create spaces in central València where ambitious people from all over the world could come together — not just to work, but to connect, collaborate, and build something meaningful.</p>
+              <p>Today we operate two locations — Ruzafa and Puerta del Mar — serving a community of designers, developers, founders, freelancers, and remote teams from over 30 countries. Whether you need a hot desk for a day or a dedicated space for your team, we make it easy to get to work.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            ${eyebrow("What we offer")}
+            <h2 class="section-title">Everything you need, <em>nothing you don't.</em></h2>
+          </div>
+          <div class="amenities-grid">
+            ${[
+              { n: "01", t: "Coworking", d: "Hot desks and fix desks with 1 Gbps Wi-Fi, specialty coffee, and flexible access across two central locations." },
+              { n: "02", t: "Meeting rooms", d: "7 rooms across both locations, bookable by the hour. Whiteboard, screen, Wi-Fi, and coffee included." },
+              { n: "03", t: "Virtual office", d: "A registered business address in València for company formation, tax filings, and mail handling." },
+              { n: "04", t: "Office as a Service", d: "Turnkey private offices — we find, design, equip, and manage your workspace so you focus on your business." },
+              { n: "05", t: "Community events", d: "Beer Day, Pizza Friday, Happy Hour, startup networking, and more. Every week, all year." },
+              { n: "06", t: "International network", d: "Members from over 30 countries. A place to meet founders, designers, and operators from around the world." },
+            ].map(p => \`<div class="amenity-card">
+              <span class="amenity-num">— \${p.n}</span>
+              <h3 class="amenity-title">\${p.t}</h3>
+              <p class="amenity-desc">\${p.d}</p>
+            </div>\`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="two-col">
+            <div>
+              ${eyebrow("Our locations")}
+              <h2 style="margin-top:20px">Two spaces, <em>one community.</em></h2>
+            </div>
+            <div>
+              <p><strong>Ruzafa</strong> — 500 m² in València's creative district. Pet-friendly, specialty coffee, and a quieter vibe. C/ Carlos Cervera 14, 46006 València.</p>
+              <p><strong>Puerta del Mar</strong> — 700 m² in a restored 1898 building near the old port. Five meeting rooms, an event hall, and a bigger, brighter space. C/ Cronista Carreres 10, 46003 València.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container" style="text-align:center">
+          <h2>Come say hi.</h2>
+          <p class="lede" style="margin-top:16px">Book a free tour and see which space fits you best.</p>
+          <a href="/contact" class="btn btn--primary btn--xl" style="margin-top:24px">Book a tour <span class="btn-arrow">→</span></a>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  /* ============================================================
+     PRIVACY
+     ============================================================ */
+  function renderPrivacy() {
+    return `<main>
+      <section class="section hero-detail">
+        <div class="container" style="max-width:800px">
+          <div>
+            ${eyebrow("Legal")}
+            <h1 style="margin-top:16px">Privacy Policy</h1>
+            <p class="lede" style="margin-top:16px">How Cowork Up collects, uses, and protects your personal data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container legal-content" style="max-width:800px">
+          <h2>Data Controller</h2>
+          <p>Cowork Up · C/ Carlos Cervera 14, 46006 València, Spain · info@co-workup.com</p>
+
+          <h2>Data We Collect</h2>
+          <ul>
+            <li><strong>Contact forms:</strong> Name, email, phone number, company name, and message content when you submit a contact or booking form.</li>
+            <li><strong>Subscriptions:</strong> Name, email, phone, and payment information processed through Stripe. We do not store credit card details — all payment data is handled directly by Stripe.</li>
+            <li><strong>Virtual Office:</strong> Company name, fiscal identification number, and correspondence address for mail handling services.</li>
+            <li><strong>Analytics:</strong> Anonymous usage data via Google Analytics (GA4), including pages visited, session duration, and device type. No personally identifiable information is collected through analytics.</li>
+            <li><strong>Cookies:</strong> Functional cookies required for site operation and analytics cookies from Google Analytics.</li>
+          </ul>
+
+          <h2>How We Use Your Data</h2>
+          <ul>
+            <li>To respond to enquiries and schedule tours of our spaces</li>
+            <li>To process membership subscriptions and payments</li>
+            <li>To provide virtual office and mail handling services</li>
+            <li>To send service-related communications about your membership</li>
+            <li>To improve our website and services through anonymous analytics</li>
+          </ul>
+
+          <h2>Your Rights Under GDPR</h2>
+          <p>Under the General Data Protection Regulation (EU 2016/679), you have the right to:</p>
+          <ul>
+            <li>Access the personal data we hold about you</li>
+            <li>Rectify any inaccurate or incomplete data</li>
+            <li>Request erasure of your personal data</li>
+            <li>Restrict or object to the processing of your data</li>
+            <li>Receive your data in a portable format</li>
+            <li>Withdraw your consent at any time</li>
+          </ul>
+          <p>To exercise any of these rights, contact us at <a href="mailto:info@co-workup.com">info@co-workup.com</a>.</p>
+
+          <h2>Data Retention</h2>
+          <p>We retain personal data only as long as necessary for the purposes described above, or as required by Spanish and European law. Contact form submissions are retained for 12 months. Membership data is retained for the duration of the contract plus the legally required accounting period.</p>
+
+          <h2>Third-Party Services</h2>
+          <ul>
+            <li><strong>Stripe</strong> — Payment processing. <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a></li>
+            <li><strong>HubSpot</strong> — Contact form management. <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener">HubSpot Privacy Policy</a></li>
+            <li><strong>Google Analytics</strong> — Anonymous site analytics. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+          </ul>
+
+          <h2>Contact</h2>
+          <p>For any privacy-related questions or requests, email <a href="mailto:info@co-workup.com">info@co-workup.com</a>.</p>
+          <p style="margin-top:32px;color:var(--c-muted);font-size:14px">Last updated: August 2026</p>
+        </div>
+      </section>
+    </main>`;
+  }
+
+  /* ============================================================
      ROUTER
      ============================================================ */
   function getRoute() {
@@ -1522,6 +1673,8 @@
     if (route === "/contact") return "contact";
     if (route === "/terms") return "terms";
     if (route === "/cancel") return "cancel";
+    if (route === "/about") return "about";
+    if (route === "/privacy") return "privacy";
     return "home";
   }
 
@@ -1535,6 +1688,8 @@
     if (route === "/contact") return renderContact();
     if (route === "/terms") return renderTerms();
     if (route === "/cancel") return renderCancel();
+    if (route === "/about") return renderAbout();
+    if (route === "/privacy") return renderPrivacy();
     return renderHome();
   }
 
@@ -1574,6 +1729,14 @@
     cancel: {
       title: "Cancel Subscription — Cowork Up València",
       description: "Cancel your Cowork Up membership. Complete the cancellation form to process your subscription termination.",
+    },
+    about: {
+      title: "About Cowork Up — Coworking in València since 2020",
+      description: "Cowork Up is a social and international coworking community in València, Spain. Two locations, flexible plans, and a vibrant community of founders and remote workers from around the world.",
+    },
+    privacy: {
+      title: "Privacy Policy — Cowork Up València",
+      description: "How Cowork Up collects, uses, and protects your personal data. GDPR-compliant privacy policy for our coworking spaces in València.",
     },
   };
 
@@ -1850,54 +2013,101 @@
           data-hyper-widget="79046f9f-7bdd-4da4-8030-164f297a60ec"></script>
 
   <noscript>
-    <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif">
-      <h1>Cowork Up — Coworking en València</h1>
-      <p>Dos espacios de coworking en el centro de València: <strong>Ruzafa</strong> y <strong>Puerta del Mar</strong>. Hot desks, fix desks, salas de reuniones, oficina virtual y Office as a Service para empresas. Desde 20 €/día.</p>
+    <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;line-height:1.6">
+      <h1>Cowork Up — Social and International Coworking in València, Spain</h1>
+      <p>Cowork Up is a coworking community in the heart of València, Spain, with two locations in the city centre. We offer flexible coworking plans — from day passes to dedicated desks — meeting rooms, virtual office services, and turnkey private offices for teams. Our members are founders, freelancers, designers, developers, and remote workers from over 30 countries. Whether you need a desk for a day or a home for your company, we make it easy to get to work in València.</p>
 
       <h2>Cowork Up Ruzafa</h2>
-      <p>C/ Carlos Cervera 14, 46006 València · Tel: <a href="tel:+34627653141">+34 627 65 31 41</a></p>
-      <p>500 m² · 2 salas de reuniones · 5 cabinas telefónicas · Cocina equipada · Café de especialidad · Pet-friendly</p>
-      <p>Horario: Lunes a Viernes 08:00–20:30</p>
+      <p><strong>Address:</strong> C/ Carlos Cervera 14, 46006 València, Spain · <strong>Phone:</strong> <a href="tel:+34627653141">+34 627 65 31 41</a></p>
+      <p>A 500 m² coworking space in Ruzafa, València's creative neighbourhood. Two meeting rooms (Sala Discovery, Sala Thinking), five phone booths, a fully equipped kitchen with specialty coffee, secure bike storage, and a pet-friendly policy. The space is surrounded by galleries, vinyl shops, and vermouth bars — ideal for designers, indie developers, small studios, and freelancers who want a creative, quieter environment.</p>
+      <p><strong>Hours:</strong> Monday–Friday 08:00–20:30 · <strong>Nearest metro:</strong> Xàtiva (lines 3, 5, 7, 9)</p>
 
       <h2>Cowork Up Puerta del Mar</h2>
-      <p>C/ Cronista Carreres 10, 46003 València · Tel: <a href="tel:+34670758698">+34 670 75 86 98</a></p>
-      <p>700 m² · 5 salas de reuniones · 6 cabinas telefónicas · Salón de eventos · Cocina equipada</p>
-      <p>Horario: Lunes a Viernes 07:30–20:00</p>
+      <p><strong>Address:</strong> C/ Cronista Carreres 10, 46003 València, Spain · <strong>Phone:</strong> <a href="tel:+34670758698">+34 670 75 86 98</a></p>
+      <p>A 700 m² coworking space in a beautifully restored 1898 building, two blocks from the old port. Five meeting rooms (Sala Altea, Sala Denia, Sala Calpe, and more), six phone booths, an event hall, a fully equipped kitchen, and secure bike storage. Original tile floors, period balcony doors, and fast fibre internet behind classical plaster mouldings. Our larger location for teams, meetings, and events.</p>
+      <p><strong>Hours:</strong> Monday–Friday 07:30–20:00 · <strong>Nearest metro:</strong> Colón (lines 3, 5, 7, 9)</p>
 
-      <h2>Planes y Precios</h2>
+      <h2>Plans and Pricing</h2>
+      <p>All prices + IVA (21%). Plans are per-location. No setup fees, cancel any month.</p>
+      <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%">
+        <thead><tr><th>Plan</th><th>Price</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>Half-Day Pass</td><td>€15/day</td><td>Morning (08:30–14:00) or afternoon (15:00–20:30)</td></tr>
+          <tr><td>Day Pass</td><td>€22/day</td><td>Full-day unlimited access, any open desk</td></tr>
+          <tr><td>Weekly Pass</td><td>€80–85/week</td><td>5 days of unlimited access</td></tr>
+          <tr><td>10h Flex</td><td>€75/month</td><td>10 hours/week, afternoons only (15:00–20:30)</td></tr>
+          <tr><td>Unlimited Afternoons</td><td>€100/month</td><td>Unlimited access from 14:00, 1 h/week meeting room</td></tr>
+          <tr><td>20h Flex</td><td>€130/month</td><td>20 hours/week, hot desk, 1 h/week meeting room</td></tr>
+          <tr><td>Hot Desk</td><td>€175/month</td><td>Unlimited access, any open desk, 2 h/week meeting room</td></tr>
+          <tr><td>Fix Desk</td><td>€205/month</td><td>Unlimited access, dedicated desk, 3 h/week meeting room</td></tr>
+          <tr><td>Meeting Room</td><td>From €20/hour</td><td>2–10 people, whiteboard, screen, Wi-Fi, coffee</td></tr>
+          <tr><td>Virtual Office</td><td>€60/3 months</td><td>Fiscal address, mail handling, document scanning</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What's Included</h2>
       <ul>
-        <li><strong>Day Pass:</strong> 20 €/día — Mesa libre, Wi-Fi, café y té</li>
-        <li><strong>Weekly Pass:</strong> 80 €/semana — Mesa libre 5 días, 1h sala de reuniones</li>
-        <li><strong>10h Flex:</strong> 59 €/mes — 10 horas/semana, hot desk</li>
-        <li><strong>20h Flex:</strong> 99 €/mes — 20 horas/semana, hot desk</li>
-        <li><strong>Hot Desk:</strong> 169 €/mes — Acceso ilimitado 24/7, cualquier mesa</li>
-        <li><strong>Fix Desk:</strong> 239 €/mes — Mesa dedicada con tu nombre, taquilla personal</li>
-        <li><strong>Meeting Room:</strong> 8 €/hora — De 2 a 10 personas, pizarra y pantalla</li>
-        <li><strong>Virtual Office:</strong> 39 €/mes — Dirección fiscal, gestión de correo y paquetes</li>
+        <li>1 Gbps symmetrical fibre Wi-Fi</li>
+        <li>Free specialty coffee, tea, and fresh fruit</li>
+        <li>Printing, scanning, and office supplies</li>
+        <li>Phone booths for private calls</li>
+        <li>Fully equipped kitchen with fridge, microwave, and dishwasher</li>
+        <li>Secure indoor bike storage</li>
+        <li>Weekly community events: Beer Day, Pizza Friday, Happy Hour, startup networking</li>
+        <li>International community with members from over 30 countries</li>
       </ul>
 
-      <h2>Office as a Service</h2>
-      <p>Oficina privada llave en mano en València. Buscamos, diseñamos, equipamos y gestionamos tu espacio. Sin inversión inicial, sin contrato de alquiler a largo plazo. Propuesta en 48 horas.</p>
+      <h2>Meeting Rooms</h2>
+      <p>7 meeting rooms across both locations, bookable by the hour via WhatsApp. All rooms include whiteboard, screen, Wi-Fi, and complimentary coffee and water.</p>
+      <p><strong>Ruzafa:</strong> Sala Discovery (4 people, €20/h), Sala Thinking (6 people, €20/h). Book via WhatsApp: +34 627 65 31 41</p>
+      <p><strong>Puerta del Mar:</strong> Sala Altea (6 people, €20/h), Sala Denia (8 people, €20/h), Sala Calpe (10 people, €25/h). Book via WhatsApp: +34 670 75 86 98</p>
 
-      <h2>Preguntas Frecuentes</h2>
+      <h2>Virtual Office</h2>
+      <p>A professional business address in central València — ideal for company registration, tax filings, and client-facing correspondence. €60 every 3 months + IVA. Includes fiscal address, mail handling with real-time notifications, document scanning, weekly digest, and exclusive discounts on coworking plans. Available at both Ruzafa and Puerta del Mar.</p>
+
+      <h2>Office as a Service</h2>
+      <p>A turnkey private office in València. We find, design, equip, and manage your workspace — furniture, IT, connectivity, cleaning, reception, and mail handling. No upfront investment, no long-term lease. Proposal within 48 hours. Ideal for companies with 5–30 employees or international teams opening a Spanish office.</p>
+
+      <h2>About Cowork Up</h2>
+      <p>Founded in 2020, Cowork Up was built for people who want more than a desk. Our spaces bring together founders, freelancers, designers, developers, and remote workers from around the world. We believe great work happens in great communities. Every week we host events — Beer Day, Pizza Friday, Happy Hour, startup networking, and more — and our members come from over 30 countries.</p>
+
+      <h2>Frequently Asked Questions</h2>
       <dl>
-        <dt>¿Puedo probar el espacio antes de registrarme?</dt>
-        <dd>Sí. Reserva un Day Pass y ven a trabajar un día, o escríbenos y te damos una visita guiada.</dd>
-        <dt>¿Qué ubicación debo elegir?</dt>
-        <dd>Cada ubicación tiene sus propios planes. Ruzafa es más creativo y tranquilo; Puerta del Mar es más grande y luminoso. Visita ambos y elige el que mejor se adapte a ti.</dd>
-        <dt>¿Tienen oficinas privadas?</dt>
-        <dd>Sí — oficinas privadas para 2–6 personas en Puerta del Mar. Escríbenos por email.</dd>
-        <dt>¿Puedo obtener una dirección fiscal?</dt>
-        <dd>Sí. El plan Virtual Office incluye dirección en València, gestión de correo y paquetes, y 4 pases de día al año.</dd>
-        <dt>¿Tienen eventos?</dt>
-        <dd>Cada semana: Beer Day, Pizza Friday, Happy Hour, networking de startups y más. Comunidad internacional.</dd>
-        <dt>¿Puedo llevar a mi perro?</dt>
-        <dd>Sí en Ruzafa, no en Puerta del Mar.</dd>
+        <dt>Can I try the space before signing up?</dt>
+        <dd>Of course. Book a Day Pass and come work for a day, or drop us a line and we'll give you a free tour. No pressure, no pitch — bring your laptop, take a desk, see if it feels right.</dd>
+        <dt>Which location should I pick?</dt>
+        <dd>Each location has its own plans and personality. Ruzafa skews creative and quieter; Puerta del Mar is bigger, brighter, and busier with meetings. Visit both and see which one fits you best.</dd>
+        <dt>Do you have private offices?</dt>
+        <dd>Yes — small private offices for 2–6 people at Puerta del Mar. Drop us an email; we keep a short waitlist.</dd>
+        <dt>Can I get a registered business address?</dt>
+        <dd>Yes. Our Virtual Office plan gives you a València address, mail forwarding, document scanning, and package handling. Perfect for company registration and tax filings in Spain.</dd>
+        <dt>Do you host events?</dt>
+        <dd>Every week: Beer Day, Pizza Friday, Happy Hour, startup networking, and more. Our community is international — you'll meet founders, designers, and operators from all over.</dd>
+        <dt>Can I bring my dog?</dt>
+        <dd>Yes at Ruzafa, no at Puerta del Mar.</dd>
+        <dt>What about parking and bikes?</dt>
+        <dd>Both locations have secure indoor bike racks. Parking is street-only — we're in the centre of València. Most members arrive by bike, scooter, metro, or on foot.</dd>
       </dl>
 
-      <h2>Contacto</h2>
-      <p>Email: <a href="mailto:info@co-workup.com">info@co-workup.com</a></p>
-      <p>Ruzafa: <a href="tel:+34627653141">+34 627 65 31 41</a> · Puerta del Mar: <a href="tel:+34670758698">+34 670 75 86 98</a></p>
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:info@co-workup.com">info@co-workup.com</a></p>
+      <p><strong>Ruzafa:</strong> <a href="tel:+34627653141">+34 627 65 31 41</a> · C/ Carlos Cervera 14, 46006 València</p>
+      <p><strong>Puerta del Mar:</strong> <a href="tel:+34670758698">+34 670 75 86 98</a> · C/ Cronista Carreres 10, 46003 València</p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/cowork.up/">@cowork.up</a> · <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/co-work-up/">Cowork Up</a></p>
+
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/spaces/ruzafa">Cowork Up Ruzafa</a></li>
+        <li><a href="/spaces/puerta-del-mar">Cowork Up Puerta del Mar</a></li>
+        <li><a href="/meeting-rooms">Meeting Rooms</a></li>
+        <li><a href="/office">Office as a Service</a></li>
+        <li><a href="/virtual-office">Virtual Office</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms & Conditions</a></li>
+      </ul>
     </div>
   </noscript>
 </body>
