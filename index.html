@@ -249,16 +249,16 @@
 <body>
   <div id="root"></div>
 
-  <div id="ruzafa-modal" class="ruzafa-modal" style="display:none">
+  <div id="capacity-modal" class="ruzafa-modal" style="display:none">
     <div class="ruzafa-modal-backdrop"></div>
     <div class="ruzafa-modal-content">
       <button class="ruzafa-modal-close" aria-label="Close">&times;</button>
-      <span style="font-size:48px;display:block;text-align:center;margin-bottom:16px">🏗️</span>
-      <h2 style="text-align:center;margin-bottom:8px">Ruzafa is closed for renovations</h2>
-      <p style="text-align:center;color:var(--muted);margin-bottom:24px">Our Ruzafa location is undergoing the final phase of renovations and will reopen on <strong>August 10th</strong>. In the meantime, our <strong>Puerta del Mar</strong> coworking space is fully operational with all the same plans and amenities.</p>
+      <span style="font-size:44px;display:block;text-align:center;margin-bottom:16px">🙌</span>
+      <h2 style="text-align:center;margin-bottom:8px" id="capacity-modal-title">We're at full capacity!</h2>
+      <p style="text-align:center;color:var(--c-ink-soft);margin-bottom:28px">The <strong id="capacity-plan-name"></strong> plan at <strong>Ruzafa</strong> is currently full. But great news — the same plan is available at our <strong>Puerta del Mar</strong> location, or you can join the waitlist and we'll notify you as soon as a spot opens up.</p>
       <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
-        <a href="/spaces/puerta-del-mar" class="btn btn--primary btn--lg">See plans at Puerta del Mar <span class="btn-arrow">→</span></a>
-        <button class="ruzafa-modal-dismiss" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:8px">Close</button>
+        <a id="capacity-pdm-btn" href="#" target="_blank" rel="noopener" class="btn btn--primary btn--lg" style="width:100%;text-align:center">Get it at Puerta del Mar <span class="btn-arrow">→</span></a>
+        <a id="capacity-waitlist-btn" href="#" target="_blank" rel="noopener" class="btn btn--ghost btn--lg" style="width:100%;text-align:center">Join the Ruzafa waitlist</a>
       </div>
     </div>
   </div>
@@ -513,14 +513,16 @@
   function planCard(p) {
     const href = p.url || "/contact";
     const isExternal = p.url && !p.url.startsWith("#");
-    const target = isExternal ? ' target="_blank" rel="noopener"' : '';
+    const isWaitlist = p.url && p.url.includes("hsforms.com");
+    const target = isExternal && !isWaitlist ? ' target="_blank" rel="noopener"' : '';
     const cta = p.cta || "Book Now";
+    const waitlistAttrs = isWaitlist && p.pdmUrl ? ` data-waitlist data-plan-name="${p.name}" data-pdm-url="${p.pdmUrl}" data-waitlist-url="${p.url}"` : '';
     return `<div class="plan${p.featured ? ' plan--featured' : ''}">
       <div class="plan-tag"><span>${p.tag}</span>${p.badge ? `<span class="badge">${p.badge}</span>` : ''}</div>
       <h3 class="plan-name">${p.name}</h3>
       <div class="plan-price"><span class="amt">€${p.price}</span><span class="per">${p.per}</span>${p.vat ? '<span class="per"> + IVA</span>' : ''}</div>
       <ul class="plan-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-      <a href="${href}"${target} class="btn ${p.featured ? 'btn--accent' : 'btn--primary'}">${cta}<span class="btn-arrow">→</span></a>
+      <a href="${isWaitlist ? '#' : href}"${target}${waitlistAttrs} class="btn ${p.featured ? 'btn--accent' : 'btn--primary'}">${cta}<span class="btn-arrow">→</span></a>
     </div>`;
   }
 
@@ -565,13 +567,7 @@
   function renderNav(current) {
     const spacesActive = current === "ruzafa" || current === "puerta";
     const servicesActive = current === "office" || current === "virtual";
-    const ruzafaClosed = new Date() < new Date("2026-08-07");
-    return `${ruzafaClosed ? `<div class="ruzafa-banner">
-      <div class="container">
-        <span>🚧</span> <strong>Ruzafa is closed for renovations until August 10th.</strong> Our Puerta del Mar location remains fully open. <a href="/spaces/puerta-del-mar">See Puerta del Mar →</a>
-      </div>
-    </div>` : ''}
-    <header class="nav">
+    return `<header class="nav">
       <div class="container nav-row">
         <a href="/" class="brand" aria-label="Cowork Up — Home">
           <img src="/assets/logo.png" alt="Cowork Up" class="brand-logo" style="height:54px" />
@@ -903,7 +899,8 @@
             const url = p.urls?.[slug];
             const price = p.prices?.[slug] || p.price;
             const isWaitlist = url && url.includes("hsforms.com");
-            return planCard({ ...p, url, price, cta: isWaitlist ? "Join Waitlist" : p.cta });
+            const pdmUrl = p.urls?.["puerta-del-mar"];
+            return planCard({ ...p, url, price, pdmUrl, cta: isWaitlist ? "Join Waitlist" : p.cta });
           }).join('')}</div>
         </div>
       </section>
@@ -1984,40 +1981,41 @@
   /* ============================================================
      INIT
      ============================================================ */
-  const RUZAFA_CLOSED = new Date() < new Date("2026-08-07");
-  const RUZAFA_URLS = new Set(RUZAFA_CLOSED ? SPACE_PLANS.map(p => p.urls?.ruzafa).filter(Boolean) : []);
-  if (RUZAFA_CLOSED) RUZAFA_URLS.add("https://buy.stripe.com/fZu6oG9p28523Qg6CSgIo1e");
+  const capacityModal = document.getElementById("capacity-modal");
 
-  function showRuzafaModal() {
-    document.getElementById("ruzafa-modal").style.display = "flex";
+  function showCapacityModal(planName, pdmUrl, waitlistUrl) {
+    document.getElementById("capacity-plan-name").textContent = planName;
+    document.getElementById("capacity-pdm-btn").href = pdmUrl;
+    document.getElementById("capacity-waitlist-btn").href = waitlistUrl;
+    capacityModal.style.display = "flex";
     document.body.style.overflow = "hidden";
   }
-  function hideRuzafaModal() {
-    document.getElementById("ruzafa-modal").style.display = "none";
+  function hideCapacityModal() {
+    capacityModal.style.display = "none";
     document.body.style.overflow = "";
   }
-  document.getElementById("ruzafa-modal").addEventListener("click", (e) => {
+  capacityModal.addEventListener("click", (e) => {
     if (e.target.classList.contains("ruzafa-modal-backdrop") ||
-        e.target.classList.contains("ruzafa-modal-dismiss") ||
         e.target.classList.contains("ruzafa-modal-close")) {
-      hideRuzafaModal();
+      hideCapacityModal();
     }
   });
 
   document.addEventListener("click", (e) => {
-    const a = e.target.closest("a[href]");
-    if (!a) return;
-    const href = a.getAttribute("href");
-
-    if (href && RUZAFA_URLS.has(href)) {
+    const a = e.target.closest("a[data-waitlist]");
+    if (a) {
       e.preventDefault();
-      showRuzafaModal();
+      showCapacityModal(a.dataset.planName, a.dataset.pdmUrl, a.dataset.waitlistUrl);
       return;
     }
 
-    if (!href || !href.startsWith("/") || a.target === "_blank") return;
+    const link = e.target.closest("a[href]");
+    if (!link) return;
+    const href = link.getAttribute("href");
+
+    if (!href || !href.startsWith("/") || link.target === "_blank") return;
     e.preventDefault();
-    if (document.getElementById("ruzafa-modal").style.display === "flex") hideRuzafaModal();
+    if (capacityModal.style.display === "flex") hideCapacityModal();
     if (href !== window.location.pathname) {
       history.pushState(null, "", href);
       mount();
